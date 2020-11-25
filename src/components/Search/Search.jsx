@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import './Search.css';
+import searchIcon from './search.svg';
 
 export default class Search extends Component {
   constructor(props) {
@@ -19,11 +20,17 @@ export default class Search extends Component {
 
   render() {
     const { value } = this.state;
+    const searchButtonTitle = <img src={searchIcon} alt="Search" />;
 
     return (
       <div className="search">
-        <Input placeholder="Search beers..." value={value} onChange={this.onChange} />
-        <Button bright title="Search" onClick={this.onSubmit} />
+        <Input
+          className="search__input"
+          placeholder="Search beers..."
+          value={value}
+          onChange={this.onChange}
+        />
+        <Button className="search__button" title={searchButtonTitle} onClick={this.onSubmit} />
       </div>
     );
   }
