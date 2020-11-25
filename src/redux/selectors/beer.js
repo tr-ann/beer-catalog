@@ -1,4 +1,4 @@
-export const selectTasks = (state) => state.tasks;
+export const selectBeers = (state) => state.beersList;
 
 export const selectError = (state) => state.error;
 

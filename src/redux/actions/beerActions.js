@@ -12,12 +12,14 @@ const getBeerFailure = (error) => ({
   },
 });
 
-const getBeerSuccess = (tasks) => ({
-  type: GET_BEER_LIST_SUCCESS,
-  payload: {
-    tasks,
-  },
-});
+const getBeerSuccess = (beers) => {
+  return {
+    type: GET_BEER_LIST_SUCCESS,
+    payload: {
+      beers,
+    },
+  };
+};
 
 export function getBeerList() {
   return async (dispatch) => {
@@ -37,7 +39,7 @@ export function getFavoriteBeer() {
     dispatch(getBeerStarted());
 
     try {
-      const res = await axios.get(process.env.REACT_APP_TASKS_URL);
+      const res = await axios.get(process.env.REACT_APP_BEER_URL);
       dispatch(getBeerSuccess(res.data));
     } catch (err) {
       getBeerFailure(err);

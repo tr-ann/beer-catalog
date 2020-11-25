@@ -1,12 +1,12 @@
-import { GET_BEER_FAILURE, GET_BEER_STARTED, GET_BEER_SUCCESS } from '../actionTypes';
+import { GET_BEER_LIST_FAILURE, GET_BEER_STARTED, GET_BEER_LIST_SUCCESS } from '../actionTypes';
 
 const initialState = {
-  beers: [],
+  beersList: [],
   isLoading: false,
   error: null,
 };
 
-export default function beerList(state = initialState, action) {
+export default function beersList(state = initialState, action) {
   switch (action.type) {
     case GET_BEER_STARTED: {
       return {
@@ -14,14 +14,14 @@ export default function beerList(state = initialState, action) {
         isLoading: true,
       };
     }
-    case GET_BEER_SUCCESS: {
+    case GET_BEER_LIST_SUCCESS: {
       return {
         ...state,
-        beer: action.payload.beer,
+        beersList: action.payload.beers,
         isLoading: false,
       };
     }
-    case GET_BEER_FAILURE: {
+    case GET_BEER_LIST_FAILURE: {
       return {
         ...state,
         isLoading: false,
