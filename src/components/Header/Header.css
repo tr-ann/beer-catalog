@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  background-color: rgb(45, 127, 252);
+  color: white;
+  height: 4rem;
+}
+
+.header__page-title {
+  display: block;
+  margin: auto 1rem;
+}
+
+.header__button img {
+  height: 1.5rem;
+}
+
+.header__info-menu-button {
+  margin: auto 2rem auto auto;
+}
