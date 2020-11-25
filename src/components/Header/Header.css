@@ -1,8 +1,9 @@
 .header {
   display: flex;
-  background-color: rgb(45, 127, 252);
+  background-color: #106cc8;
   color: white;
-  height: 4rem;
+  height: 3rem;
+  font-size: 1.2rem;
 }
 
 .header__page-title {

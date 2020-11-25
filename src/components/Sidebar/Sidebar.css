@@ -1,0 +1,37 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15rem;
+  height: 100vh;
+  font-size: 1.2rem;
+  transition: 0.2s;
+  border-right: 1px solid rgb(201, 201, 201);
+}
+
+.sidebar_hidden {
+  left: -15rem;
+}
+
+.sidebar__header {
+  display: flex;
+  box-sizing: border-box;
+  min-height: 8rem;
+  padding: 1.5rem;
+  color: white;
+  background-color: #106cc8;
+}
+
+.header__close-button {
+  display: block;
+  margin: 0 0 auto auto;
+}
+
+.header__close-button img {
+  height: 1.2rem;
+}
+
+.sidebar__body {
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
