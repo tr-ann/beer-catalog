@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import './Search.css';
-import searchIcon from './search.svg';
+import searchIcon from '../../shared/images/search/search.svg';
 
 export default class Search extends Component {
   constructor(props) {
