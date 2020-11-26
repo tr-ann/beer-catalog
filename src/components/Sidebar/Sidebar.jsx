@@ -19,13 +19,13 @@ export default function Sidebar({ classNames: classes, isHidden, currentPage, on
         </Button>
       </header>
       <ul className="sidebar__links-list">
-        <li>
+        <li key="home">
           <Link className="links-list__link" to={{ pathname: '/beer' }}>
             <img src={homeIson} alt="icon" />
             <span>Home</span>
           </Link>
         </li>
-        <li>
+        <li key="favorites">
           <Link className="links-list__link" to={{ pathname: '/favorites' }}>
             <img src={starIson} alt="icon" />
             Favorites

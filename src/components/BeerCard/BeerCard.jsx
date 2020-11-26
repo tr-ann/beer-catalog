@@ -26,8 +26,8 @@ export default function BeerCard({ image, title, tagline, description, className
         {/* <Link to="/beer" className="button">
           open
         </Link> */}
-        <Button title="open" />
-        <Button title="favorite" onClick={onFavoriteClick} />
+        <Button>open</Button>
+        <Button onClick={onFavoriteClick}>favorite</Button>
       </div>
     </div>
   );

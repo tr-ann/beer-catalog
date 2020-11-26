@@ -20,9 +20,7 @@ export default class BeerList extends Component {
     const { isLoading } = this.props;
 
     return (
-      <>
-        {isLoading ? <div>isLoading...</div> : <div className="beers-list">{this.getBeers()}</div>}
-      </>
+      <>{isLoading ? <div>loading...</div> : <div className="beers-list">{this.getBeers()}</div>}</>
     );
   }
 }
