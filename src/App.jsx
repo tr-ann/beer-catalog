@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import BeerListContainer from './components/BeerList/BeerListContainer';
+import Header from './components/Header/Header';
+import Main from './components/Main/Main';
 
 function App() {
   return (
     <div className="App">
-      <BeerListContainer />
+      <Header currentPage="Home" />
+      <Main />
     </div>
   );
 }

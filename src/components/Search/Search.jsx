@@ -20,12 +20,17 @@ export default class Search extends Component {
 
   render() {
     const { value } = this.state;
-    const title = <img src={searchIcon} alt="search" />;
+    const searchButtonTitle = <img src={searchIcon} alt="Search" />;
 
     return (
       <div className="search">
-        <Input placeholder="Search beers..." value={value} onChange={this.onChange} />
-        <Button title={title} onClick={this.onSubmit} />
+        <Input
+          className="search__input"
+          placeholder="Search beers..."
+          value={value}
+          onChange={this.onChange}
+        />
+        <Button className="search__button" title={searchButtonTitle} onClick={this.onSubmit} />
       </div>
     );
   }
