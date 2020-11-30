@@ -1,13 +1,17 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import './App.scss';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
+import Header from './pages/header/components/Header/Header';
+import Landing from './pages/home/components/Landing/Landing';
 
 function App() {
   return (
     <div className="App">
       <Header currentPage="Home" />
-      <Main />
+      <Switch>
+        <Route path="/beer/:id" />
+        <Route path="/beer" component={Landing} />
+      </Switch>
     </div>
   );
 }
