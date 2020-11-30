@@ -6,7 +6,7 @@
   text-transform: uppercase;
   padding: 5px 10px;
   margin: auto 5px;
-  color: white;
+  color: black;
   transition: transform 0.1s;
 }
 
@@ -21,6 +21,7 @@
 }
 
 .button_bright {
+  color: white;
   background-color: rgb(57, 57, 255);
 }
 

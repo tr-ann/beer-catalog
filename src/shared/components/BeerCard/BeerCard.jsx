@@ -1,15 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import Button from '../Button/Button';
 import './BeerCard.css';
 
-export default function BeerCard({ image, title, tagline, description, classNames: classes }) {
+export default function BeerCard({ id, image, title, tagline, description, classNames: classes }) {
   const cardClass = classNames('card', classes, {
     'card_more-info': Boolean(description),
   });
   const cardBodyClass = classNames('card-body', { 'card-body_transparent': Boolean(description) });
 
-  const onFavoriteClick = () => {};
+  const onFavoriteClick = () => {
+    // favorites.push(id)
+  };
 
   let descriptionTag = null;
   if (description) {
@@ -23,10 +26,9 @@ export default function BeerCard({ image, title, tagline, description, className
         <h3>{title}</h3>
         <p className="tagline">{tagline}</p>
         {descriptionTag}
-        {/* <Link to="/beer" className="button">
+        <Link to={`/beer/${id}`} className="button">
           open
-        </Link> */}
-        <Button>open</Button>
+        </Link>
         <Button onClick={onFavoriteClick}>favorite</Button>
       </div>
     </div>
