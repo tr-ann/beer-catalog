@@ -1,18 +1,18 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.scss';
-import Header from './pages/header/components/Header/Header';
 import Landing from './pages/home/components/Landing/Landing';
+import Routes from './shared/constants/paths/paths';
 
 function App() {
+  const { home, details } = Routes;
+
   return (
-    <div className="App">
-      <Header currentPage="Home" />
-      <Switch>
-        <Route path="/beer/:id" />
-        <Route path="/beer" component={Landing} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route path={home.url} exact component={Landing} />
+      <Route path={details.url} exact />
+      <Redirect to={home.url} />
+    </Switch>
   );
 }
 

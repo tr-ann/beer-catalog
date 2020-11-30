@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Button from '../../../../shared/components/Button/Button';
+import Button from '../../../Button/Button';
 import Sidebar from '../Sidebar/Sidebar';
-import './Header.scss';
-import menu from '../../../../shared/images/header/menu.svg';
-import menu2 from '../../../../shared/images/header/menu2.png';
+import './PageHeader.scss';
+import menu from '../../../../images/header/menu.svg';
+import menu2 from '../../../../images/header/menu2.png';
 
 export default class Header extends Component {
   constructor(props) {

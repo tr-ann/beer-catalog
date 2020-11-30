@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import Button from '../../../../shared/components/Button/Button';
+import Button from '../../../Button/Button';
 import './Sidebar.scss';
-import cancelIcon from '../../../../shared/images/sidebar/cancel.svg';
-import homeIson from '../../../../shared/images/sidebar/home.svg';
-import starIson from '../../../../shared/images/sidebar/star.svg';
+import cancelIcon from '../../../../images/sidebar/cancel.svg';
+import homeIson from '../../../../images/sidebar/home.svg';
+import starIson from '../../../../images/sidebar/star.svg';
 
 export default function Sidebar({ classNames: classes, isHidden, currentPage, onClose }) {
   const sidebarClass = classNames('sidebar', classes, { sidebar_hidden: isHidden });
