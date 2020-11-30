@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import './Search.css';
-import searchIcon from './search.svg';
+import searchIcon from '../../shared/images/search/search.svg';
 
 export default class Search extends Component {
   constructor(props) {
@@ -20,7 +20,6 @@ export default class Search extends Component {
 
   render() {
     const { value } = this.state;
-    const searchButtonTitle = <img src={searchIcon} alt="Search" />;
 
     return (
       <div className="search">
@@ -30,7 +29,9 @@ export default class Search extends Component {
           value={value}
           onChange={this.onChange}
         />
-        <Button className="search__button" title={searchButtonTitle} onClick={this.onSubmit} />
+        <Button className="search__button" onClick={this.onSubmit}>
+          <img src={searchIcon} alt="Search" />
+        </Button>
       </div>
     );
   }

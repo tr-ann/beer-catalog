@@ -9,9 +9,7 @@ export default function BeerCard({ image, title, tagline, description, className
   });
   const cardBodyClass = classNames('card-body', { 'card-body_transparent': Boolean(description) });
 
-  const onFavoriteClick = () => {
-    // favorites.push(id)
-  };
+  const onFavoriteClick = () => {};
 
   let descriptionTag = null;
   if (description) {
@@ -28,7 +26,8 @@ export default function BeerCard({ image, title, tagline, description, className
         {/* <Link to="/beer" className="button">
           open
         </Link> */}
-        <Button title="favorite" onClick={onFavoriteClick} />
+        <Button>open</Button>
+        <Button onClick={onFavoriteClick}>favorite</Button>
       </div>
     </div>
   );
