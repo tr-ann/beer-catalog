@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  background-color: #106cc8;
+  color: white;
+  height: 3rem;
+  font-size: 1.2rem;
+}
+
+.header__page-title {
+  display: block;
+  margin: auto 1rem;
+}
+
+.header__button img {
+  height: 1.5rem;
+}
+
+.header__info-menu-button {
+  margin: auto 2rem auto auto;
+}
