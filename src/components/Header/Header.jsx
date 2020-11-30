@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../Button/Button';
 import Sidebar from '../Sidebar/Sidebar';
-import './Header.css';
+import './Header.scss';
 import menu from '../../shared/images/header/menu.svg';
 import menu2 from '../../shared/images/header/menu2.png';
 
