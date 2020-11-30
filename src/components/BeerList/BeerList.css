@@ -1,0 +1,6 @@
+.beers-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 60vw;
+  gap: 1rem;
+}
