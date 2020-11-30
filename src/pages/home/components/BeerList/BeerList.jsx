@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BeerCard from '../BeerCard/BeerCard';
+import BeerCard from '../../../../shared/components/BeerCard/BeerCard';
 import './BeerList.css';
 
 export default class BeerList extends Component {
@@ -12,7 +12,15 @@ export default class BeerList extends Component {
     const { beers } = this.props;
 
     return beers.map((beer) => {
-      return <BeerCard image={beer.image_url} title={beer.name} tagline={beer.tagline} />;
+      return (
+        <BeerCard
+          key={beer.id}
+          id={beer.id}
+          image={beer.image_url}
+          title={beer.name}
+          tagline={beer.tagline}
+        />
+      );
     });
   };
 
