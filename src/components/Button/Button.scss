@@ -1,0 +1,32 @@
+.button {
+  background-color: inherit;
+  text-decoration: none;
+  border: none;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  margin: auto 5px;
+  color: black;
+  transition: transform 0.1s;
+}
+
+.button:hover,
+.button:focus {
+  outline: none;
+  cursor: pointer;
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.button_bright {
+  color: white;
+  background-color: rgb(57, 57, 255);
+}
+
+.button_icon {
+  padding: 0;
+  height: 2rem;
+  width: 2rem;
+}
