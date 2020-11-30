@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import Button from '../Button/Button';
-import './Sidebar.css';
+import './Sidebar.scss';
 import cancelIcon from '../../shared/images/sidebar/cancel.svg';
 import homeIson from '../../shared/images/sidebar/home.svg';
 import starIson from '../../shared/images/sidebar/star.svg';
