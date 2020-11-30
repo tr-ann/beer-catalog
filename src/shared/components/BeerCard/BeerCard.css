@@ -1,8 +1,6 @@
 .card {
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  font-size: 1rem;
 }
 
 .card_more-info {
@@ -13,18 +11,17 @@
 .card-body {
   color: white;
   background-color: darkgrey;
-  margin-top: 0.5rem;
   padding: 0.5rem;
 }
 
-.card-body_more {
+.card-body_transparent {
   color: black;
   background-color: inherit;
 }
 
 .card__image {
-  display: block;
-  width: 4rem;
-  max-height: auto;
   margin: auto;
+  padding: 1rem 0;
+  width: 4rem;
+  height: auto;
 }
