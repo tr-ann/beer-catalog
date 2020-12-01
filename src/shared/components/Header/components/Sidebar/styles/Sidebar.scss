@@ -27,7 +27,7 @@
       display: block;
       margin: 0 0 auto auto;
 
-      img {
+      .close-button-icon {
         height: 1.2rem;
       }
     }
@@ -39,22 +39,22 @@
     box-sizing: border-box;
     list-style-type: none;
 
-    li {
+    .links-list__item {
       margin-bottom: 0.5rem;
-    }
 
-    .links-list__link {
-      text-decoration: none;
-      color: $color--sidebar-text;
+      .link {
+        text-decoration: none;
+        color: $color--sidebar-text;
 
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
 
-      img {
-        height: 1.2rem;
-        margin: auto 0.5rem auto auto;
+        &__icon {
+          height: 1.2rem;
+          margin: auto 0.5rem auto auto;
+        }
       }
     }
   }

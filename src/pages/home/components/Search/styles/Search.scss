@@ -1,17 +1,14 @@
 .search {
   display: flex;
-  max-width: 500px;
+  align-items: center;
+  max-width: 25rem;
   margin: 2rem auto;
 
   &__button {
-    align-self: center;
-
-    img {
-      height: 1.5rem;
-    }
+    padding: 0;
   }
 
-  &__input {
-    align-self: center;
+  &__icon {
+    height: 1.7rem;
   }
 }

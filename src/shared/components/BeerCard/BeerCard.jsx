@@ -4,20 +4,15 @@ import classNames from 'classnames';
 import Button from '../Button/Button';
 import './styles/BeerCard.scss';
 
-export default function BeerCard({ id, image, title, tagline, description, classNames: classes }) {
-  const cardClass = classNames('card', classes, {
-    'card_more-info': Boolean(description),
+export default function BeerCard({ id, image, title, tagline, description, className }) {
+  const cardClass = classNames('card', className, {
+    'card_more-info': description,
   });
-  const cardBodyClass = classNames('card__body', { card__body_transparent: Boolean(description) });
+  const cardBodyClass = classNames('card__body', { card__body_transparent: description });
 
   const onFavoriteClick = () => {
     // favorites.push(id)
   };
-
-  let descriptionTag = null;
-  if (description) {
-    descriptionTag = <p>{description}</p>;
-  }
 
   return (
     <div className={cardClass}>
@@ -25,11 +20,13 @@ export default function BeerCard({ id, image, title, tagline, description, class
       <div className={cardBodyClass}>
         <h3>{title}</h3>
         <p className="tagline">{tagline}</p>
-        {descriptionTag}
-        <Link to={`/beer/${id}`} className="button">
-          open
-        </Link>
-        <Button onClick={onFavoriteClick}>favorite</Button>
+        {description && <p>{description}</p>}
+        <div className="buttons-container">
+          <Link to={`/beer/${id}`}>
+            <Button>open</Button>
+          </Link>
+          <Button onClick={onFavoriteClick}>favorite</Button>
+        </div>
       </div>
     </div>
   );
