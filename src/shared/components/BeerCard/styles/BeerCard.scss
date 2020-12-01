@@ -1,0 +1,27 @@
+.card {
+  display: flex;
+  flex-direction: column;
+
+  &_more-info {
+    flex-direction: row-reverse;
+    box-shadow: 0 1px 1px 1px rgb(201, 201, 201);
+  }
+
+  &__body {
+    color: white;
+    background-color: darkgrey;
+    padding: 0.5rem;
+
+    &_transparent {
+      color: black;
+      background-color: inherit;
+    }
+  }
+
+  &__image {
+    margin: auto;
+    padding: 1rem 0;
+    width: 4rem;
+    height: auto;
+  }
+}

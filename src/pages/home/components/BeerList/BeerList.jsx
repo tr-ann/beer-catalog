@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BeerCard from '../../../../shared/components/BeerCard/BeerCard';
-import './BeerList.css';
+import './styles/BeerList.scss';
 
 export default class BeerList extends Component {
   componentDidMount() {

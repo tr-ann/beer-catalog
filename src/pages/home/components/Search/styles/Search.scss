@@ -1,0 +1,17 @@
+.search {
+  display: flex;
+  max-width: 500px;
+  margin: 2rem auto;
+
+  &__button {
+    align-self: center;
+
+    img {
+      height: 1.5rem;
+    }
+  }
+
+  &__input {
+    align-self: center;
+  }
+}
