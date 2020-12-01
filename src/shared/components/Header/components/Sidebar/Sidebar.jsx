@@ -2,32 +2,32 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import Button from '../../../Button/Button';
-import './styles/Sidebar.scss';
 import cancelIcon from '../../../../images/sidebar/cancel.svg';
 import homeIson from '../../../../images/sidebar/home.svg';
 import starIson from '../../../../images/sidebar/star.svg';
+import './styles/Sidebar.scss';
 
-export default function Sidebar({ classNames: classes, isHidden, currentPage, onClose }) {
-  const sidebarClass = classNames('sidebar', classes, { sidebar_hidden: isHidden });
+export default function Sidebar({ className, isHidden, currentPage, onClose }) {
+  const sidebarClass = classNames('sidebar', className, { sidebar_hidden: isHidden });
 
   return (
     <div className={sidebarClass}>
       <header className="sidebar__header">
         {currentPage}
         <Button className="header__close-button" onClick={onClose}>
-          <img src={cancelIcon} alt="close" />
+          <img src={cancelIcon} alt="close" className="close-button-icon" />
         </Button>
       </header>
       <ul className="sidebar__links-list">
-        <li key="home">
-          <Link className="links-list__link" to={{ pathname: '/beer' }}>
-            <img src={homeIson} alt="icon" />
-            <span>Home</span>
+        <li key="home" className="links-list__item">
+          <Link className="link" to={{ pathname: '/beer' }}>
+            <img src={homeIson} alt="icon" className="link__icon" />
+            Home
           </Link>
         </li>
-        <li key="favorites">
-          <Link className="links-list__link" to={{ pathname: '/favorites' }}>
-            <img src={starIson} alt="icon" />
+        <li key="favorites" className="links-list__item">
+          <Link className="link" to={{ pathname: '/favorites' }}>
+            <img src={starIson} alt="icon" className="link__icon" />
             Favorites
           </Link>
         </li>

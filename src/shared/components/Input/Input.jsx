@@ -2,8 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 import './styles/Input.scss';
 
-const Input = ({ classNames: classes, placeholder, onChange, value }) => {
-  const inputClass = classNames('input', classes);
+const Input = ({ className, placeholder, onChange, value }) => {
+  const inputClass = classNames('input', className);
 
   return (
     <input

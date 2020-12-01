@@ -2,10 +2,10 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.scss';
 import Landing from './pages/home/components/Landing/Landing';
-import Routes from './shared/constants/paths/paths';
+import ROUTES from './shared/constants/paths/paths';
 
 function App() {
-  const { home, details } = Routes;
+  const { home, details } = ROUTES;
 
   return (
     <Switch>
