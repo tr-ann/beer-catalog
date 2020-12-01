@@ -1,9 +1,11 @@
+@import '../../../../../styles/colors.scss';
+
 .header {
   position: relative;
   width: 100%;
   display: flex;
-  background-color: #106cc8;
-  color: white;
+  background-color: $color--header-background;
+  color: $color--header-text;
   height: 3rem;
   font-size: 1.2rem;
 
