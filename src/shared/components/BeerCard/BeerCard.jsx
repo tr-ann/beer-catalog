@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import Button from '../Button/Button';
-import './BeerCard.css';
+import './styles/BeerCard.scss';
 
 export default function BeerCard({ id, image, title, tagline, description, classNames: classes }) {
   const cardClass = classNames('card', classes, {
     'card_more-info': Boolean(description),
   });
-  const cardBodyClass = classNames('card-body', { 'card-body_transparent': Boolean(description) });
+  const cardBodyClass = classNames('card__body', { card__body_transparent: Boolean(description) });
 
   const onFavoriteClick = () => {
     // favorites.push(id)

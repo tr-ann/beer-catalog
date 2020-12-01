@@ -1,0 +1,59 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15rem;
+  height: 100vh;
+  font-size: 1.2rem;
+  transition: 0.2s;
+  border-right: 1px solid rgb(201, 201, 201);
+  background-color: white;
+
+  &_hidden {
+    left: -15rem;
+  }
+
+  &__header {
+    display: flex;
+    box-sizing: border-box;
+    min-height: 8rem;
+    padding: 1.5rem;
+    color: white;
+    background-color: #106cc8;
+
+    .header__close-button {
+      display: block;
+      margin: 0 0 auto auto;
+
+      img {
+        height: 1.2rem;
+      }
+    }
+  }
+
+  &__links-list {
+    padding: 1.5rem;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    .links-list__link {
+      text-decoration: none;
+      color: black;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+
+      img {
+        height: 1.2rem;
+        margin: auto 0.5rem auto auto;
+      }
+    }
+  }
+}

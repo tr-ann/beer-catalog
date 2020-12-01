@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Button from '../../../../shared/components/Button/Button';
 import Input from '../../../../shared/components/Input/Input';
-import './Search.css';
+import './styles/Search.scss';
 import searchIcon from '../../../../shared/images/search/search.svg';
 
 export default class Search extends Component {
