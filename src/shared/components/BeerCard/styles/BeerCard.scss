@@ -1,19 +1,21 @@
+@import '../../../styles/colors.scss';
+
 .card {
   display: flex;
   flex-direction: column;
 
   &_more-info {
     flex-direction: row-reverse;
-    box-shadow: 0 1px 1px 1px rgb(201, 201, 201);
+    box-shadow: 0 1px 1px 1px $color--card-background;
   }
 
   &__body {
-    color: white;
-    background-color: darkgrey;
+    color: $color--card-text;
+    background-color: $color--card-background;
     padding: 0.5rem;
 
     &_transparent {
-      color: black;
+      color: $color--card-dark-text;
       background-color: inherit;
     }
   }

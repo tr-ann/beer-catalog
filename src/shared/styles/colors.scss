@@ -1,0 +1,28 @@
+$white: white;
+$black: black;
+$gray: gray;
+$blue: #106cc8;
+
+$color--main-text: $white;
+$color--secondary-text: $black;
+$color--background: $gray;
+$color--title-background: $blue;
+
+/* button */
+$color--button-text: $color--main-text;
+$color--button--bright-background: $color--title-background;
+
+/* input */
+$color--input-text: $color--background;
+
+/* header */
+$color--header-text: $color--main-text;
+$color--header-background: $color--title-background;
+$color--sidebar-background: $color--main-text;
+$color--sidebar-text: $color--secondary-text;
+$color--sidebar-border: $color--background;
+
+/* beer card */
+$color--card-text: $color--main-text;
+$color--card-background: $color--background;
+$color--card-dark-text: $color--secondary-text;
