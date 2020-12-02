@@ -2,8 +2,14 @@ import React from 'react';
 import classNames from 'classnames';
 import './styles/Input.scss';
 
-const Input = ({ className, placeholder, onChange, value }) => {
+const Input = ({ className, placeholder, value, onChange, onSubmit }) => {
   const inputClass = classNames('input', className);
+
+  const onKeyPress = (e) => {
+    if (e.code === 'Enter') {
+      onSubmit();
+    }
+  };
 
   return (
     <input
@@ -12,6 +18,7 @@ const Input = ({ className, placeholder, onChange, value }) => {
       className={inputClass}
       placeholder={placeholder}
       onChange={onChange}
+      onKeyPress={onKeyPress}
     />
   );
 };

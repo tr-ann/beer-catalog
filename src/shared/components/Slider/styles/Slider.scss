@@ -1,0 +1,42 @@
+@import '../../../styles/colors.scss';
+
+.slider-container {
+  display: flex;
+  align-items: center;
+}
+
+.slider {
+  -webkit-appearance: none;
+  height: 2px;
+  border-radius: 2px;
+  background: $color--slider;
+  outline: none;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $color--slider;
+    cursor: pointer;
+  }
+
+  &::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: $color--slider;
+    cursor: pointer;
+  }
+
+  &::-ms-fill-lower {
+    background-color: $color--slider;
+  }
+
+  &::-moz-range-progress {
+    background-color: $color--slider;
+  }
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from '../../../../shared/components/Button/Button';
 import Input from '../../../../shared/components/Input/Input';
 import searchIcon from '../../../../shared/images/search/search.svg';
+import Filter from '../Filter/Filter';
 import './styles/Search.scss';
 
 export default class Search extends Component {
@@ -9,6 +10,7 @@ export default class Search extends Component {
     super(props);
     this.state = {
       value: '',
+      isFilterHidden: true,
     };
   }
 
@@ -16,18 +18,31 @@ export default class Search extends Component {
     this.setState({ value: e.target.value });
   };
 
-  onSubmit = () => {};
+  onSubmit = () => {
+    const { value } = this.state;
+    if (value) {
+      this.setState({ isFilterHidden: false });
+    }
+  };
 
   render() {
-    const { value } = this.state;
+    const { value, isFilterHidden } = this.state;
 
     return (
-      <div className="search">
-        <Input placeholder="Search beers..." value={value} onChange={this.onChange} />
-        <Button className="search__button" onClick={this.onSubmit}>
-          <img src={searchIcon} alt="Search" className="search__icon" />
-        </Button>
-      </div>
+      <>
+        <div className="search">
+          <Input
+            placeholder="Search beers..."
+            value={value}
+            onChange={this.onChange}
+            onSubmit={this.onSubmit}
+          />
+          <Button className="search__button" onClick={this.onSubmit}>
+            <img src={searchIcon} alt="Search" className="search__icon" />
+          </Button>
+        </div>
+        <Filter isHidden={isFilterHidden} />
+      </>
     );
   }
 }
