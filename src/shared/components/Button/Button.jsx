@@ -1,11 +1,10 @@
 import React from 'react';
-import './Button.scss';
 import classNames from 'classnames';
+import './styles/Button.scss';
 
-const Button = ({ bright, icon, onClick, children, className }) => {
+const Button = ({ bright, onClick, children, className }) => {
   const classes = classNames('button', className, {
     button_bright: bright,
-    button_icon: icon,
   });
 
   return (

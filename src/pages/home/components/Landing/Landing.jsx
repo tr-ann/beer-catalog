@@ -1,15 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Header from '../../../../shared/components/Header/components/PageHeader/PageHeader';
 import BeerListContainer from '../BeerList/BeerListContainer';
 import Search from '../Search/Search';
+import ROUTES from '../../../../shared/constants/paths/paths';
 
-// eslint-disable-next-line react/prefer-stateless-function
-export default class Landing extends Component {
-  render() {
-    return (
+const Landing = () => {
+  const { home } = ROUTES;
+
+  return (
+    <>
+      <Header currentPage={home.name} />
       <div>
         <Search />
         <BeerListContainer />
       </div>
-    );
-  }
-}
+    </>
+  );
+};
+
+export default Landing;

@@ -1,0 +1,14 @@
+.search {
+  display: flex;
+  align-items: center;
+  max-width: 25rem;
+  margin: 2rem auto;
+
+  &__button {
+    padding: 0;
+  }
+
+  &__icon {
+    height: 1.7rem;
+  }
+}

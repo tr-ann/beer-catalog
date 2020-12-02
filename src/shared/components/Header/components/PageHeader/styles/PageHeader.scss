@@ -1,0 +1,24 @@
+@import '../../../../../styles/colors.scss';
+
+.header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  background-color: $color--header-background;
+  color: $color--header-text;
+  height: 3rem;
+  font-size: 1.2rem;
+
+  &__page-title {
+    display: block;
+    margin: auto 1rem;
+  }
+
+  &__menu-icon {
+    height: 1.5rem;
+  }
+
+  &__info-menu-button {
+    margin: auto 2rem auto auto;
+  }
+}
