@@ -1,0 +1,23 @@
+.filter {
+  margin: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 30rem;
+  font-size: 1rem;
+
+  &_hidden {
+    display: none;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    margin: auto;
+  }
+
+  &__category {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
