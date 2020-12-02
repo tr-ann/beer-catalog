@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Button from '../../../../shared/components/Button/Button';
+import Button from '../../../Button/Button';
 import Sidebar from '../Sidebar/Sidebar';
-import './Header.scss';
-import menu from '../../../../shared/images/header/menu.svg';
-import menu2 from '../../../../shared/images/header/menu2.png';
+import menu from '../../../../images/header/menu.svg';
+import menu2 from '../../../../images/header/menu2.png';
+import './styles/PageHeader.scss';
 
 export default class Header extends Component {
   constructor(props) {
@@ -23,12 +23,12 @@ export default class Header extends Component {
     return (
       <>
         <header className="header">
-          <Button className="header__button" onClick={this.onSwitchMenuState}>
-            <img src={menu} alt="menu" />
+          <Button onClick={this.onSwitchMenuState}>
+            <img className="header__menu-icon" src={menu} alt="menu" />
           </Button>
           <span className="header__page-title">{currentPage}</span>
-          <Button className="header__button header__info-menu-button">
-            <img src={menu2} alt="menu" />
+          <Button className="header__info-menu-button">
+            <img className="header__menu-icon" src={menu2} alt="menu" />
           </Button>
         </header>
         <Sidebar
