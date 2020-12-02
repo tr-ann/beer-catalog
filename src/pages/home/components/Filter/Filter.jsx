@@ -8,14 +8,22 @@ export default class Filter extends Component {
     super(props);
 
     this.state = {
-      ibuSlider: '4.6',
-      abvSlider: '50',
-      ebcSlider: '60',
+      abvSlider: '',
+      ibuSlider: '',
+      ebcSlider: '',
     };
+  }
+
+  componentDidUpdate() {
+    const { doFilterBeers } = this.props;
+    const { ibuSlider: ibu, abvSlider: abv, ebcSlider: ebc } = this.state;
+
+    doFilterBeers({ ibu, abv, ebc });
   }
 
   onSliderChange = (e) => {
     const { id, value } = e.target;
+
     this.setState({ [id]: value });
   };
 
@@ -30,22 +38,22 @@ export default class Filter extends Component {
         <div className="filter__category">
           Alcohol by volume
           <Slider
-            id="ibuSlider"
+            id="abvSlider"
             min="2"
             max="14"
             step="0.1"
-            value={ibuSlider}
+            value={abvSlider}
             onChange={this.onSliderChange}
           />
         </div>
         <div className="filter__category">
           International Bitterness Units
           <Slider
-            id="abvSlider"
+            id="ibuSlider"
             min="0"
             max="120"
             step="10"
-            value={abvSlider}
+            value={ibuSlider}
             onChange={this.onSliderChange}
           />
         </div>

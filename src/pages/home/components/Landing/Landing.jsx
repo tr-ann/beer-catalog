@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../../../shared/components/Header/components/PageHeader/PageHeader';
 import BeerListContainer from '../BeerList/BeerListContainer';
-import Search from '../Search/Search';
+import SearchContainer from '../Search/SearchContainer';
 import ROUTES from '../../../../shared/constants/paths/paths';
 
 const Landing = () => {
@@ -11,7 +11,7 @@ const Landing = () => {
     <>
       <Header currentPage={home.name} />
       <div>
-        <Search />
+        <SearchContainer />
         <BeerListContainer />
       </div>
     </>

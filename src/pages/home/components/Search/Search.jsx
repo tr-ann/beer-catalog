@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from '../../../../shared/components/Button/Button';
 import Input from '../../../../shared/components/Input/Input';
 import searchIcon from '../../../../shared/images/search/search.svg';
-import Filter from '../Filter/Filter';
+import FilterContainer from '../Filter/FilterContainer';
 import './styles/Search.scss';
 
 export default class Search extends Component {
@@ -20,9 +20,11 @@ export default class Search extends Component {
 
   onSubmit = () => {
     const { value } = this.state;
-    if (value) {
-      this.setState({ isFilterHidden: false });
-    }
+    const { doSearchBeers } = this.props;
+
+    this.setState({ isFilterHidden: false });
+
+    doSearchBeers(value);
   };
 
   render() {
@@ -41,7 +43,7 @@ export default class Search extends Component {
             <img src={searchIcon} alt="Search" className="search__icon" />
           </Button>
         </div>
-        <Filter isHidden={isFilterHidden} />
+        <FilterContainer isHidden={isFilterHidden} />
       </>
     );
   }
