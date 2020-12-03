@@ -1,9 +1,12 @@
 import React from 'react';
+import classNames from 'classnames';
 import './styles/Slider.scss';
 
-export default function Slider({ id, min, max, step, value, onChange }) {
+export default function Slider({ id, min, max, step, value, onChange, className }) {
+  const containerClasses = classNames('slider-container', className);
+
   return (
-    <div className="slider-container">
+    <div className={containerClasses}>
       <label htmlFor={id}>{value}</label>
       <input
         id={id}

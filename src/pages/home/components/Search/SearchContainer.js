@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { searchBeers } from '../../../../redux/actions/beerActions';
+import { getBeerList } from '../../../../redux/actions/beerActions';
 import Search from './Search';
 
 const mapDispatchToProps = {
-  doSearchBeers: searchBeers,
+  doSearchBeers: getBeerList,
 };
 
 export default connect(null, mapDispatchToProps)(Search);
