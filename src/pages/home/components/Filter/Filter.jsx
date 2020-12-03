@@ -1,6 +1,17 @@
 import React from 'react';
 import classNames from 'classnames';
 import Slider from '../../../../shared/components/Slider/Slider';
+import {
+  MAX_ALCOHOL_BY_VOLUME,
+  MAX_BITTERNESS_UNITS,
+  MAX_COLOR_BY_EBC,
+  MIN_ALCOHOL_BY_VOLUME,
+  MIN_BITTERNESS_UNITS,
+  MIN_COLOR_BY_EBC,
+  STEP_ALCOHOL_BY_VOLUME,
+  STEP_BITTERNESS_UNITS,
+  STEP_COLOR_BY_EBC,
+} from '../../../../shared/constants/beer/beerParams';
 import './styles/Filter.scss';
 
 const Filter = ({ ibu, abv, ebc, isHidden, onChange }) => {
@@ -13,9 +24,9 @@ const Filter = ({ ibu, abv, ebc, isHidden, onChange }) => {
         Alcohol by volume
         <Slider
           id="abv"
-          min="2"
-          max="14"
-          step="0.1"
+          min={MIN_ALCOHOL_BY_VOLUME}
+          max={MAX_ALCOHOL_BY_VOLUME}
+          step={STEP_ALCOHOL_BY_VOLUME}
           className="filter__slider"
           value={abv}
           onChange={onChange}
@@ -25,9 +36,9 @@ const Filter = ({ ibu, abv, ebc, isHidden, onChange }) => {
         International Bitterness Units
         <Slider
           id="ibu"
-          min="0"
-          max="120"
-          step="10"
+          min={MIN_BITTERNESS_UNITS}
+          max={MAX_BITTERNESS_UNITS}
+          step={STEP_BITTERNESS_UNITS}
           className="filter__slider"
           value={ibu}
           onChange={onChange}
@@ -37,9 +48,9 @@ const Filter = ({ ibu, abv, ebc, isHidden, onChange }) => {
         Color by EBC
         <Slider
           id="ebc"
-          min="4"
-          max="80"
-          step="1"
+          min={MIN_COLOR_BY_EBC}
+          max={MAX_COLOR_BY_EBC}
+          step={STEP_COLOR_BY_EBC}
           className="filter__slider"
           value={ebc}
           onChange={onChange}
