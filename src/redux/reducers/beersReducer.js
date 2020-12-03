@@ -18,7 +18,6 @@ export default function beersList(state = initialState, action) {
       return {
         ...state,
         beersList: action.payload.beers,
-        searchedBeers: null,
         isLoading: false,
       };
     }

@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import Button from '../../../../shared/components/Button/Button';
 import Input from '../../../../shared/components/Input/Input';
+import {
+  INITIAL_ALCOHOL_BY_VOLUME,
+  INITIAL_BITTERNESS_UNITS,
+  INITIAL_COLOR_BY_EBC,
+} from '../../../../shared/constants/beer/beerParams';
 import searchIcon from '../../../../shared/images/search/search.svg';
 import Filter from '../Filter/Filter';
 import './styles/Search.scss';
@@ -10,9 +15,9 @@ export default class Search extends Component {
     super(props);
     this.state = {
       inputValue: '',
-      ibu: '50',
-      abv: '4.6',
-      ebc: '60',
+      ibu: INITIAL_BITTERNESS_UNITS,
+      abv: INITIAL_ALCOHOL_BY_VOLUME,
+      ebc: INITIAL_COLOR_BY_EBC,
       isFilterHidden: true,
     };
   }
