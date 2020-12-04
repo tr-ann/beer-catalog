@@ -27,7 +27,6 @@ export function getBeerList(params = {}) {
 
     try {
       const res = await axios.get(process.env.REACT_APP_BEER_URL, { params });
-
       dispatch(getBeerSuccess(res.data));
     } catch (err) {
       getBeerFailure(err);
