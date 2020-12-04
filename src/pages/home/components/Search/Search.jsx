@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from '../../../../shared/components/Button/Button';
 import Input from '../../../../shared/components/Input/Input';
 import {
@@ -75,3 +76,7 @@ export default class Search extends Component {
     );
   }
 }
+
+Search.propTypes = {
+  doSearchBeers: PropTypes.func.isRequired,
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import Slider from '../../../../shared/components/Slider/Slider';
 import {
   MAX_ALCOHOL_BY_VOLUME,
@@ -61,3 +62,11 @@ const Filter = ({ ibu, abv, ebc, isHidden, onChange }) => {
 };
 
 export default Filter;
+
+Filter.propTypes = {
+  ibu: PropTypes.number.isRequired,
+  abv: PropTypes.number.isRequired,
+  ebc: PropTypes.number.isRequired,
+  isHidden: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

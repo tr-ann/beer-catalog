@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import Button from '../../../Button/Button';
 import cancelIcon from '../../../../images/sidebar/cancel.svg';
 import homeIson from '../../../../images/sidebar/home.svg';
 import starIson from '../../../../images/sidebar/star.svg';
 import './styles/Sidebar.scss';
+import ROUTES from '../../../../constants/paths/paths';
 
-export default function Sidebar({ className, isHidden, currentPage, onClose }) {
+const Sidebar = ({ className, isHidden, currentPage, onClose }) => {
   const sidebarClass = classNames('sidebar', className, { sidebar_hidden: isHidden });
 
   return (
@@ -34,4 +36,19 @@ export default function Sidebar({ className, isHidden, currentPage, onClose }) {
       </ul>
     </div>
   );
-}
+};
+
+export default Sidebar;
+
+Sidebar.propTypes = {
+  className: PropTypes.string,
+  isHidden: PropTypes.bool,
+  currentPage: PropTypes.string,
+  onClose: PropTypes.func.isRequired,
+};
+
+Sidebar.defaultProps = {
+  className: '',
+  isHidden: true,
+  currentPage: ROUTES.home,
+};

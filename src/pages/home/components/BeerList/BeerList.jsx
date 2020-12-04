@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import BeerCard from '../../../../shared/components/BeerCard/BeerCard';
 import './styles/BeerList.scss';
 
@@ -9,9 +10,13 @@ export default class BeerList extends Component {
   }
 
   getBeers = () => {
-    const { beers } = this.props;
+    const { beers, error } = this.props;
 
-    return beers.map((beer) => {
+    if (error) {
+      return <div>{error}</div>;
+    }
+
+    const renderedBeers = beers.map((beer) => {
       return (
         <BeerCard
           key={beer.id}
@@ -22,13 +27,24 @@ export default class BeerList extends Component {
         />
       );
     });
+
+    return <div className="beers-list">{renderedBeers}</div>;
   };
 
   render() {
     const { isLoading } = this.props;
 
-    return (
-      <>{isLoading ? <div>loading...</div> : <div className="beers-list">{this.getBeers()}</div>}</>
-    );
+    return <>{isLoading ? <div>loading...</div> : this.getBeers()}</>;
   }
 }
+
+BeerList.propTypes = {
+  beers: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.object,
+  doGetBeerList: PropTypes.func.isRequired,
+};
+
+BeerList.defaultProps = {
+  error: null,
+};

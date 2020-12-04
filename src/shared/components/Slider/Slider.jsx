@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import './styles/Slider.scss';
 
 export default function Slider({ id, min, max, step, value, onChange, className }) {
@@ -21,3 +22,17 @@ export default function Slider({ id, min, max, step, value, onChange, className 
     </div>
   );
 }
+
+Slider.propTypes = {
+  className: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
+  step: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+Slider.defaultProps = {
+  className: '',
+};
