@@ -64,9 +64,9 @@ const Filter = ({ ibu, abv, ebc, isHidden, onChange }) => {
 export default Filter;
 
 Filter.propTypes = {
-  ibu: PropTypes.number.isRequired,
-  abv: PropTypes.number.isRequired,
-  ebc: PropTypes.number.isRequired,
+  ibu: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  abv: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  ebc: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   isHidden: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
 };

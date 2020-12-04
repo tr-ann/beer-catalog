@@ -37,7 +37,7 @@ export default BeerCard;
 
 BeerCard.propTypes = {
   id: PropTypes.number.isRequired,
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
   title: PropTypes.string.isRequired,
   tagline: PropTypes.string.isRequired,
   description: PropTypes.string,
@@ -47,4 +47,5 @@ BeerCard.propTypes = {
 BeerCard.defaultProps = {
   description: '',
   className: '',
+  image: null,
 };
