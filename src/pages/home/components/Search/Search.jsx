@@ -42,9 +42,9 @@ export default class Search extends Component {
 
       doSearchBeers({
         beer_name: inputValue,
-        ibu_lt: ibu,
-        abv_lt: abv,
-        ebc_lt: ebc,
+        ibu_gt: ibu,
+        abv_gt: abv,
+        ebc_gt: ebc,
       });
     }
   };
