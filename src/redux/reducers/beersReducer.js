@@ -28,7 +28,6 @@ export default function beersList(state = initialState, action) {
         error: action.payload.error,
       };
     }
-
     default:
       return state;
   }

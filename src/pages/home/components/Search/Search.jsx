@@ -1,33 +1,77 @@
 import React, { Component } from 'react';
 import Button from '../../../../shared/components/Button/Button';
 import Input from '../../../../shared/components/Input/Input';
+import {
+  INITIAL_ALCOHOL_BY_VOLUME,
+  INITIAL_BITTERNESS_UNITS,
+  INITIAL_COLOR_BY_EBC,
+} from '../../../../shared/constants/beer/beerParams';
 import searchIcon from '../../../../shared/images/search/search.svg';
+import Filter from '../Filter/Filter';
 import './styles/Search.scss';
 
 export default class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      inputValue: '',
+      ibu: INITIAL_BITTERNESS_UNITS,
+      abv: INITIAL_ALCOHOL_BY_VOLUME,
+      ebc: INITIAL_COLOR_BY_EBC,
+      isFilterHidden: true,
     };
   }
 
-  onChange = (e) => {
-    this.setState({ value: e.target.value });
+  onInputChange = (e) => {
+    const { value } = e.target;
+    this.setState({ inputValue: value });
   };
 
-  onSubmit = () => {};
+  onSliderChange = (e) => {
+    const { id, value } = e.target;
+    this.setState({ [id]: value });
+  };
+
+  onSubmit = () => {
+    const { inputValue, ibu, abv, ebc } = this.state;
+    const { doSearchBeers } = this.props;
+
+    if (inputValue) {
+      this.setState({ isFilterHidden: false });
+
+      doSearchBeers({
+        beer_name: inputValue,
+        ibu_lt: ibu,
+        abv_lt: abv,
+        ebc_lt: ebc,
+      });
+    }
+  };
 
   render() {
-    const { value } = this.state;
+    const { inputValue, isFilterHidden, ibu, abv, ebc } = this.state;
 
     return (
-      <div className="search">
-        <Input placeholder="Search beers..." value={value} onChange={this.onChange} />
-        <Button className="search__button" onClick={this.onSubmit}>
-          <img src={searchIcon} alt="Search" className="search__icon" />
-        </Button>
-      </div>
+      <>
+        <div className="search">
+          <Input
+            placeholder="Search beers..."
+            value={inputValue}
+            onChange={this.onInputChange}
+            onSubmit={this.onSubmit}
+          />
+          <Button className="search__button" onClick={this.onSubmit}>
+            <img src={searchIcon} alt="Search" className="search__icon" />
+          </Button>
+        </div>
+        <Filter
+          isHidden={isFilterHidden}
+          onChange={this.onSliderChange}
+          ibu={ibu}
+          abv={abv}
+          ebc={ebc}
+        />
+      </>
     );
   }
 }

@@ -21,12 +21,12 @@ const getBeerSuccess = (beers) => {
   };
 };
 
-export function getBeerList() {
+export function getBeerList(params = {}) {
   return async (dispatch) => {
     dispatch(getBeerStarted());
 
     try {
-      const res = await axios.get(process.env.REACT_APP_BEER_URL);
+      const res = await axios.get(process.env.REACT_APP_BEER_URL, { params });
       dispatch(getBeerSuccess(res.data));
     } catch (err) {
       getBeerFailure(err);
