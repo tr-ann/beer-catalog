@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import './styles/Input.scss';
 
 const Input = ({ className, placeholder, value, onChange, onSubmit }) => {
@@ -24,3 +25,16 @@ const Input = ({ className, placeholder, value, onChange, onSubmit }) => {
 };
 
 export default Input;
+
+Input.propTypes = {
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
+
+Input.defaultProps = {
+  className: '',
+  placeholder: 'type...',
+};

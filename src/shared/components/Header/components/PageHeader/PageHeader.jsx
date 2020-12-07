@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from '../../../Button/Button';
 import Sidebar from '../Sidebar/Sidebar';
 import menu from '../../../../images/header/menu.svg';
 import menu2 from '../../../../images/header/menu2.png';
 import './styles/PageHeader.scss';
+import ROUTES from '../../../../constants/paths/paths';
 
 export default class Header extends Component {
   constructor(props) {
@@ -40,3 +42,11 @@ export default class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  currentPage: PropTypes.string,
+};
+
+Header.defaultProps = {
+  currentPage: ROUTES.home,
+};

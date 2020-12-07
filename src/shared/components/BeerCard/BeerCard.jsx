@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import './styles/BeerCard.scss';
 
-export default function BeerCard({ id, image, title, tagline, description, className }) {
+const BeerCard = ({ id, image, title, tagline, description, className }) => {
   const cardClass = classNames('card', className, {
     'card_more-info': description,
   });
@@ -30,4 +31,21 @@ export default function BeerCard({ id, image, title, tagline, description, class
       </div>
     </div>
   );
-}
+};
+
+export default BeerCard;
+
+BeerCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  image: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  tagline: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  className: PropTypes.string,
+};
+
+BeerCard.defaultProps = {
+  description: '',
+  className: '',
+  image: '',
+};

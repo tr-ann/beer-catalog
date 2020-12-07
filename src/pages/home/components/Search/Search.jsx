@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from '../../../../shared/components/Button/Button';
 import Input from '../../../../shared/components/Input/Input';
 import {
@@ -36,16 +37,14 @@ export default class Search extends Component {
     const { inputValue, ibu, abv, ebc } = this.state;
     const { doSearchBeers } = this.props;
 
-    if (inputValue) {
-      this.setState({ isFilterHidden: false });
+    this.setState({ isFilterHidden: false });
 
-      doSearchBeers({
-        beer_name: inputValue,
-        ibu_lt: ibu,
-        abv_lt: abv,
-        ebc_lt: ebc,
-      });
-    }
+    doSearchBeers({
+      beer_name: inputValue,
+      ibu_gt: ibu,
+      abv_gt: abv,
+      ebc_gt: ebc,
+    });
   };
 
   render() {
@@ -75,3 +74,7 @@ export default class Search extends Component {
     );
   }
 }
+
+Search.propTypes = {
+  doSearchBeers: PropTypes.func.isRequired,
+};
