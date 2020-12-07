@@ -47,5 +47,5 @@ BeerCard.propTypes = {
 BeerCard.defaultProps = {
   description: '',
   className: '',
-  image: null,
+  image: '',
 };
