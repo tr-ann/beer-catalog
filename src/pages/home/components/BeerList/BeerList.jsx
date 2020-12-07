@@ -39,12 +39,13 @@ export default class BeerList extends Component {
 }
 
 BeerList.propTypes = {
-  beers: PropTypes.array.isRequired,
+  beers: PropTypes.objectOf(PropTypes.object),
   isLoading: PropTypes.bool.isRequired,
-  error: PropTypes.object,
+  error: PropTypes.objectOf(PropTypes.object),
   doGetBeerList: PropTypes.func.isRequired,
 };
 
 BeerList.defaultProps = {
   error: null,
+  beers: [],
 };
