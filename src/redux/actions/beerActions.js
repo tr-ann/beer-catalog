@@ -1,4 +1,5 @@
 import axios from 'axios';
+import queryString from 'query-string';
 import { GET_BEER_STARTED, GET_BEER_LIST_SUCCESS, GET_BEER_LIST_FAILURE } from '../actionTypes';
 
 const getBeerStarted = () => ({
@@ -26,7 +27,9 @@ export function getBeerList(params = {}) {
     dispatch(getBeerStarted());
 
     try {
-      const res = await axios.get(process.env.REACT_APP_BEER_URL, { params });
+      const options = queryString.stringify(params, { skipEmptyString: true });
+      const res = await axios.get(`${process.env.REACT_APP_BEER_URL}?${options}`);
+
       dispatch(getBeerSuccess(res.data));
     } catch (err) {
       getBeerFailure(err);

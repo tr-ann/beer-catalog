@@ -37,16 +37,14 @@ export default class Search extends Component {
     const { inputValue, ibu, abv, ebc } = this.state;
     const { doSearchBeers } = this.props;
 
-    if (inputValue) {
-      this.setState({ isFilterHidden: false });
+    this.setState({ isFilterHidden: false });
 
-      doSearchBeers({
-        beer_name: inputValue,
-        ibu_gt: ibu,
-        abv_gt: abv,
-        ebc_gt: ebc,
-      });
-    }
+    doSearchBeers({
+      beer_name: inputValue,
+      ibu_gt: ibu,
+      abv_gt: abv,
+      ebc_gt: ebc,
+    });
   };
 
   render() {
