@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/query-string": "^6.3.0",
     "axios": "^0.21.0",
     "classnames": "^2.2.6",
     "node-sass": "^4.14.1",

@@ -2,16 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BeerCard from '../../../../shared/components/BeerCard/BeerCard';
 import './styles/BeerList.scss';
+import Spinner from '../../../../shared/components/Spinner/Spinner';
 
 export default class BeerList extends Component {
-  componentDidMount() {
-    const { doGetBeerList } = this.props;
-    doGetBeerList();
-  }
-
   getBeers = () => {
     const { beers, error } = this.props;
-
     if (error) {
       return <div>{error}</div>;
     }
@@ -28,13 +23,18 @@ export default class BeerList extends Component {
       );
     });
 
-    return <div className="beers-list">{renderedBeers}</div>;
+    return (
+      <>
+        <div className="beers-list">{renderedBeers}</div>
+        <Spinner />
+      </>
+    );
   };
 
   render() {
     const { isLoading } = this.props;
 
-    return <>{isLoading ? <div>loading...</div> : this.getBeers()}</>;
+    return <>{isLoading ? <Spinner /> : this.getBeers()}</>;
   }
 }
 
@@ -42,7 +42,6 @@ BeerList.propTypes = {
   beers: PropTypes.arrayOf(PropTypes.object),
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.objectOf(PropTypes.object),
-  doGetBeerList: PropTypes.func.isRequired,
 };
 
 BeerList.defaultProps = {

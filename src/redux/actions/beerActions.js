@@ -13,24 +13,26 @@ const getBeerFailure = (error) => ({
   },
 });
 
-const getBeerSuccess = (beers) => {
+const getBeerSuccess = (beers, clearOld) => {
   return {
     type: GET_BEER_LIST_SUCCESS,
     payload: {
       beers,
+      clearOld,
     },
   };
 };
 
-export function getBeerList(params = {}) {
+export function getBeerList(params = {}, clearOld = true) {
   return async (dispatch) => {
     dispatch(getBeerStarted());
 
     try {
       const options = queryString.stringify(params, { skipEmptyString: true });
+      console.log(`${process.env.REACT_APP_BEER_URL}?${options}`);
       const res = await axios.get(`${process.env.REACT_APP_BEER_URL}?${options}`);
 
-      dispatch(getBeerSuccess(res.data));
+      dispatch(getBeerSuccess(res.data, clearOld));
     } catch (err) {
       getBeerFailure(err);
     }
