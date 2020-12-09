@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import BeerCard from '../../../../shared/components/BeerCard/BeerCard';
 import './styles/BeerList.scss';
-import Spinner from '../../../../shared/components/Spinner/Spinner';
 
 export default class BeerList extends Component {
   getBeers = () => {
@@ -23,18 +22,14 @@ export default class BeerList extends Component {
       );
     });
 
-    return (
-      <>
-        <div className="beers-list">{renderedBeers}</div>
-        <Spinner />
-      </>
-    );
+    return <div className="beers-list">{renderedBeers}</div>;
   };
 
   render() {
     const { isLoading } = this.props;
+    console.log(`isLoading ${isLoading}`);
 
-    return <>{isLoading ? <Spinner /> : this.getBeers()}</>;
+    return this.getBeers();
   }
 }
 

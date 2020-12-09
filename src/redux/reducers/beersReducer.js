@@ -20,7 +20,7 @@ export default function beersList(state = initialState, action) {
         payload: { beers, clearOld },
       } = action;
       const newBeers = clearOld ? [...beers] : [...oldBeers, ...beers];
-
+      console.log(newBeers);
       return {
         ...state,
         beersList: newBeers,

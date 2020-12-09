@@ -1,35 +1,52 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { useEffect, useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import '../Spinner/styles/Spinner.scss';
+import Spinner from '../Spinner/Spinner';
 
 export default function withInfiniteScroll(WrappedComponent) {
-  return function ComponentWithScroll(props) {
-    // eslint-disable-next-line react/prop-types
-    const { doLoadData } = props;
+  function ComponentWithScroll(props) {
+    const { doLoadData, isLoading } = props;
     const [page, setPage] = useState(1);
 
+    const nextPage = useCallback(() => {
+      setPage(page + 1);
+    }, [page]);
+
     useEffect(() => {
-      doLoadData({ page }, false);
+      console.log(page);
+      doLoadData({ page });
     }, [page, doLoadData]);
 
-    let isBlock = false;
-
-    const onScroll = () => {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.body.clientHeight;
-      const scrollTop = window.scrollY;
-
-      if (windowHeight + scrollTop > documentHeight + 30 && !isBlock) {
-        isBlock = true;
-        setPage(page + 1);
-      }
+    const handleScroll = () => {
+      document.addEventListener('scroll', () => {
+        if (
+          window.innerHeight + document.documentElement.scrollTop !==
+          document.documentElement.offsetHeight
+        ) {
+          return;
+        }
+        nextPage();
+      });
     };
 
     useEffect(() => {
-      window.addEventListener('scroll', onScroll);
+      handleScroll();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-      return () => window.removeEventListener('scroll', onScroll);
-    });
+    return (
+      <>
+        <WrappedComponent {...props} />
+        {isLoading ? <Spinner /> : null}
+      </>
+    );
+  }
 
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    return <WrappedComponent {...props} />;
+  ComponentWithScroll.propTypes = {
+    doLoadData: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired,
   };
+
+  return ComponentWithScroll;
 }
