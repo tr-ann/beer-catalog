@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { getBeerList } from '../../../../redux/actions/beerActions';
+import withInfiniteScroll from '../../../../shared/components/InfiniteScrollWrapper/InfiniteScrollWrapper';
 import {
   selectBeers,
   selectError,
@@ -14,7 +15,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  doGetBeerList: getBeerList,
+  doLoadData: getBeerList,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BeerList);
+export default connect(mapStateToProps, mapDispatchToProps)(withInfiniteScroll(BeerList));

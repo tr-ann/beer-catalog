@@ -15,9 +15,14 @@ export default function beersList(state = initialState, action) {
       };
     }
     case GET_BEER_LIST_SUCCESS: {
+      const { beersList: oldBeers } = state;
+      const {
+        payload: { beers },
+      } = action;
+
       return {
         ...state,
-        beersList: action.payload.beers,
+        beersList: [...oldBeers, ...beers],
         isLoading: false,
       };
     }

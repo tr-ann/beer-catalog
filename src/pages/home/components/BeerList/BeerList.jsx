@@ -4,14 +4,8 @@ import BeerCard from '../../../../shared/components/BeerCard/BeerCard';
 import './styles/BeerList.scss';
 
 export default class BeerList extends Component {
-  componentDidMount() {
-    const { doGetBeerList } = this.props;
-    doGetBeerList();
-  }
-
   getBeers = () => {
     const { beers, error } = this.props;
-
     if (error) {
       return <div>{error}</div>;
     }
@@ -32,17 +26,13 @@ export default class BeerList extends Component {
   };
 
   render() {
-    const { isLoading } = this.props;
-
-    return <>{isLoading ? <div>loading...</div> : this.getBeers()}</>;
+    return this.getBeers();
   }
 }
 
 BeerList.propTypes = {
-  beers: PropTypes.objectOf(PropTypes.object),
-  isLoading: PropTypes.bool.isRequired,
+  beers: PropTypes.arrayOf(PropTypes.object),
   error: PropTypes.objectOf(PropTypes.object),
-  doGetBeerList: PropTypes.func.isRequired,
 };
 
 BeerList.defaultProps = {
