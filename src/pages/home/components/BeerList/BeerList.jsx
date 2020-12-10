@@ -26,16 +26,12 @@ export default class BeerList extends Component {
   };
 
   render() {
-    const { isLoading } = this.props;
-    console.log(`isLoading ${isLoading}`);
-
     return this.getBeers();
   }
 }
 
 BeerList.propTypes = {
   beers: PropTypes.arrayOf(PropTypes.object),
-  isLoading: PropTypes.bool.isRequired,
   error: PropTypes.objectOf(PropTypes.object),
 };
 

@@ -17,13 +17,12 @@ export default function beersList(state = initialState, action) {
     case GET_BEER_LIST_SUCCESS: {
       const { beersList: oldBeers } = state;
       const {
-        payload: { beers, clearOld },
+        payload: { beers },
       } = action;
-      const newBeers = clearOld ? [...beers] : [...oldBeers, ...beers];
-      console.log(newBeers);
+
       return {
         ...state,
-        beersList: newBeers,
+        beersList: [...oldBeers, ...beers],
         isLoading: false,
       };
     }
