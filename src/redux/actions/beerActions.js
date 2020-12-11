@@ -1,6 +1,12 @@
 import axios from 'axios';
 import queryString from 'query-string';
-import { GET_BEER_STARTED, GET_BEER_LIST_SUCCESS, GET_BEER_LIST_FAILURE } from '../actionTypes';
+import { PAGE_ITEMS_AMOUNT } from '../../shared/constants/pagination/pagination';
+import {
+  GET_BEER_STARTED,
+  GET_BEER_LIST_SUCCESS,
+  GET_BEER_LIST_FAILURE,
+  ADD_FAVORITE_BEER,
+} from '../actionTypes';
 
 const getBeerStarted = () => ({
   type: GET_BEER_STARTED,
@@ -37,15 +43,28 @@ export function getBeerList(params = {}) {
   };
 }
 
-export function getFavoriteBeer() {
-  return async (dispatch) => {
+export function getFavoriteBeer(page) {
+  return async (dispatch, getState) => {
     dispatch(getBeerStarted());
 
     try {
-      const res = await axios.get(process.env.REACT_APP_BEER_URL);
+      const { favorites } = getState();
+      const startItem = page * PAGE_ITEMS_AMOUNT;
+      const ids = favorites.slice(startItem, startItem + PAGE_ITEMS_AMOUNT).join('|');
+
+      const res = await axios.get(`${process.env.REACT_APP_BEER_URL}?ids=${ids}`);
       dispatch(getBeerSuccess(res.data));
     } catch (err) {
       getBeerFailure(err);
     }
   };
 }
+
+export const addFavoriteBeer = (id) => {
+  return {
+    type: ADD_FAVORITE_BEER,
+    payload: {
+      id,
+    },
+  };
+};
