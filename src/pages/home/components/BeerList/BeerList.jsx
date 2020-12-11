@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import BeerCard from '../../../../shared/components/BeerCard/BeerCard';
+import BeerCardContainer from '../../../../shared/components/BeerCard/BeerCardContainer';
 import './styles/BeerList.scss';
 
 export default class BeerList extends Component {
@@ -12,7 +12,7 @@ export default class BeerList extends Component {
 
     const renderedBeers = beers.map((beer) => {
       return (
-        <BeerCard
+        <BeerCardContainer
           key={beer.id}
           id={beer.id}
           image={beer.image_url}
@@ -31,11 +31,10 @@ export default class BeerList extends Component {
 }
 
 BeerList.propTypes = {
-  beers: PropTypes.arrayOf(PropTypes.object),
+  beers: PropTypes.arrayOf(PropTypes.object).isRequired,
   error: PropTypes.objectOf(PropTypes.object),
 };
 
 BeerList.defaultProps = {
   error: null,
-  beers: [],
 };
