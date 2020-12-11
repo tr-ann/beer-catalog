@@ -1,6 +1,6 @@
 $white: white;
 $black: black;
-$gray: gray;
+$gray: rgb(145, 145, 145);
 $blue: #106cc8;
 
 $color--main-text: $white;
@@ -29,3 +29,7 @@ $color--card-dark-text: $color--secondary-text;
 
 /* filter */
 $color--slider: $color--title-background;
+
+/* pagination */
+$color--pagination-text: $color--title-background;
+$color--pagination-border: $color--background;
