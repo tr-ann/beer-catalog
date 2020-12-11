@@ -5,14 +5,23 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import './styles/BeerCard.scss';
 
-const BeerCard = ({ id, image, title, tagline, description, className }) => {
+const BeerCard = ({
+  doAddFavorite,
+  id,
+  image,
+  title,
+  tagline,
+  description,
+  favorite,
+  className,
+}) => {
   const cardClass = classNames('card', className, {
     'card_more-info': description,
   });
-  const cardBodyClass = classNames('card__body', { card__body_transparent: description });
+  const cardBodyClass = classNames('card__body', { 'card__body_more-info': description });
 
   const onFavoriteClick = () => {
-    // favorites.push(id)
+    doAddFavorite(id);
   };
 
   return (
@@ -26,7 +35,7 @@ const BeerCard = ({ id, image, title, tagline, description, className }) => {
           <Link to={`/beer/${id}`}>
             <Button>open</Button>
           </Link>
-          <Button onClick={onFavoriteClick}>favorite</Button>
+          <Button onClick={onFavoriteClick}>{favorite ? 'remove favorite' : 'favorite'}</Button>
         </div>
       </div>
     </div>
@@ -36,6 +45,8 @@ const BeerCard = ({ id, image, title, tagline, description, className }) => {
 export default BeerCard;
 
 BeerCard.propTypes = {
+  favorite: PropTypes.bool,
+  doAddFavorite: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   image: PropTypes.string,
   title: PropTypes.string.isRequired,
@@ -45,6 +56,7 @@ BeerCard.propTypes = {
 };
 
 BeerCard.defaultProps = {
+  favorite: false,
   description: '',
   className: '',
   image: '',

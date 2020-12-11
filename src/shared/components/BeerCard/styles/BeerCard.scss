@@ -1,12 +1,31 @@
 @import '../../../styles/colors.scss';
 
+@mixin card_more-info {
+  margin: 1.5rem auto;
+  flex-direction: row-reverse;
+  width: 100%;
+  justify-content: space-between;
+  box-shadow: 0 1px 1px 1px $color--card-background;
+
+  .card__body {
+    color: $color--card-dark-text;
+    width: 80%;
+    height: auto;
+    background-color: inherit;
+  }
+
+  .card__image {
+    height: 8rem;
+    width: auto;
+  }
+}
+
 .card {
   display: flex;
   flex-direction: column;
 
   &_more-info {
-    flex-direction: row-reverse;
-    box-shadow: 0 1px 1px 1px $color--card-background;
+    @include card_more-info;
   }
 
   &__body {
@@ -17,11 +36,6 @@
     padding: 1rem;
     height: 8rem;
     font-size: 1rem;
-
-    &_transparent {
-      color: $color--card-dark-text;
-      background-color: inherit;
-    }
 
     .buttons-container {
       margin: auto auto 0 0;
