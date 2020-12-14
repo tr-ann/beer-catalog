@@ -35,9 +35,5 @@ export default class FavoriteBeers extends Component {
 }
 
 FavoriteBeers.propTypes = {
-  beers: PropTypes.arrayOf(PropTypes.object),
-};
-
-FavoriteBeers.defaultProps = {
-  beers: [],
+  beers: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

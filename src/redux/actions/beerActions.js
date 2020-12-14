@@ -1,11 +1,11 @@
 import axios from 'axios';
-import queryString from 'query-string';
-import { PAGE_ITEMS_AMOUNT } from '../../shared/constants/pagination/pagination';
+import { stringify } from 'query-string';
 import {
   GET_BEER_STARTED,
   GET_BEER_LIST_SUCCESS,
   GET_BEER_LIST_FAILURE,
   ADD_FAVORITE_BEER,
+  GET_FAVORITE_BEERS_SUCCESS,
 } from '../actionTypes';
 
 const getBeerStarted = () => ({
@@ -28,12 +28,21 @@ const getBeerSuccess = (beers) => {
   };
 };
 
+const getFavoriteBeerSuccess = (favorites) => {
+  return {
+    type: GET_FAVORITE_BEERS_SUCCESS,
+    payload: {
+      favorites,
+    },
+  };
+};
+
 export function getBeerList(params = {}) {
   return async (dispatch) => {
     dispatch(getBeerStarted());
 
     try {
-      const options = queryString.stringify(params, { skipEmptyString: true });
+      const options = stringify(params, { skipEmptyString: true });
       const res = await axios.get(`${process.env.REACT_APP_BEER_URL}?${options}`);
 
       dispatch(getBeerSuccess(res.data));
@@ -43,17 +52,16 @@ export function getBeerList(params = {}) {
   };
 }
 
-export function getFavoriteBeer(page) {
+export function getFavoriteBeer() {
   return async (dispatch, getState) => {
     dispatch(getBeerStarted());
 
     try {
-      const { favorites } = getState();
-      const startItem = page * PAGE_ITEMS_AMOUNT;
-      const ids = favorites.slice(startItem, startItem + PAGE_ITEMS_AMOUNT).join('|');
+      const { favoritesIds } = getState();
+      const ids = favoritesIds.join('|');
 
       const res = await axios.get(`${process.env.REACT_APP_BEER_URL}?ids=${ids}`);
-      dispatch(getBeerSuccess(res.data));
+      dispatch(getFavoriteBeerSuccess(res.data));
     } catch (err) {
       getBeerFailure(err);
     }

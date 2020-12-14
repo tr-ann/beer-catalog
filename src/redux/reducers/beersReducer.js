@@ -3,11 +3,13 @@ import {
   GET_BEER_STARTED,
   GET_BEER_LIST_SUCCESS,
   ADD_FAVORITE_BEER,
+  GET_FAVORITE_BEERS_SUCCESS,
 } from '../actionTypes';
 
 const initialState = {
   beersList: [],
-  favorites: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  favoritesIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  favorites: [],
   isLoading: false,
   error: null,
 };
@@ -21,14 +23,14 @@ export default function beersList(state = initialState, action) {
       };
     }
     case GET_BEER_LIST_SUCCESS: {
-      // const { beersList: oldBeers } = state;
+      const { beersList: oldBeers } = state;
       const {
         payload: { beers },
       } = action;
 
       return {
         ...state,
-        beersList: [...beers],
+        beersList: [...oldBeers, ...beers],
         isLoading: false,
       };
     }
@@ -40,12 +42,20 @@ export default function beersList(state = initialState, action) {
       };
     }
     case ADD_FAVORITE_BEER: {
-      const { favorites: favoritesBeers } = state;
+      const { favoritesIds: favoritesBeers } = state;
       const { id } = action.payload;
 
       return {
         ...state,
-        favorites: [...favoritesBeers, id],
+        favoritesIds: [...favoritesBeers, id],
+      };
+    }
+    case GET_FAVORITE_BEERS_SUCCESS: {
+      const { favorites: beers } = action.payload;
+
+      return {
+        ...state,
+        favorites: [...beers],
       };
     }
     default:
