@@ -30,7 +30,11 @@ export default function withPagination(WrappedComponent) {
     return (
       <>
         <WrappedComponent {...propsForWrapped} beers={currentItems} />
-        <PaginationPanel pages={pagesAmount} currentPage={page} onChangePage={handleChangePage} />
+        {data.length ? (
+          <PaginationPanel pages={pagesAmount} currentPage={page} onChangePage={handleChangePage} />
+        ) : (
+          'The list is empty'
+        )}
       </>
     );
   };

@@ -4,6 +4,12 @@ import BeerCardContainer from '../../../../shared/components/BeerCard/BeerCardCo
 import './styles/BeerList.scss';
 
 export default class BeerList extends Component {
+  isFavoriteBeer = (id) => {
+    const { favoritesIds } = this.props;
+
+    return favoritesIds.includes(id);
+  };
+
   getBeers = () => {
     const { beers, error } = this.props;
     if (error) {
@@ -18,6 +24,7 @@ export default class BeerList extends Component {
           image={beer.image_url}
           title={beer.name}
           tagline={beer.tagline}
+          favorite={this.isFavoriteBeer(beer.id)}
         />
       );
     });
@@ -32,6 +39,7 @@ export default class BeerList extends Component {
 
 BeerList.propTypes = {
   beers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  favoritesIds: PropTypes.arrayOf(PropTypes.number).isRequired,
   error: PropTypes.objectOf(PropTypes.object),
 };
 

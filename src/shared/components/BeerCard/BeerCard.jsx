@@ -7,6 +7,7 @@ import './styles/BeerCard.scss';
 
 const BeerCard = ({
   doAddFavorite,
+  doRemoveFavorite,
   id,
   image,
   title,
@@ -20,9 +21,7 @@ const BeerCard = ({
   });
   const cardBodyClass = classNames('card__body', { 'card__body_more-info': description });
 
-  const onFavoriteClick = () => {
-    doAddFavorite(id);
-  };
+  const onFavoriteClick = () => (favorite ? doRemoveFavorite(id) : doAddFavorite(id));
 
   return (
     <div className={cardClass}>
@@ -49,6 +48,7 @@ export default BeerCard;
 BeerCard.propTypes = {
   favorite: PropTypes.bool,
   doAddFavorite: PropTypes.func.isRequired,
+  doRemoveFavorite: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   image: PropTypes.string,
   title: PropTypes.string.isRequired,

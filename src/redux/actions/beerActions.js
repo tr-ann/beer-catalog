@@ -6,6 +6,7 @@ import {
   GET_BEER_LIST_FAILURE,
   ADD_FAVORITE_BEER,
   GET_FAVORITE_BEERS_SUCCESS,
+  REMOVE_FAVORITE_BEER,
 } from '../actionTypes';
 
 const getBeerStarted = () => ({
@@ -71,6 +72,15 @@ export function getFavoriteBeer() {
 export const addFavoriteBeer = (id) => {
   return {
     type: ADD_FAVORITE_BEER,
+    payload: {
+      id,
+    },
+  };
+};
+
+export const removeFavoriteBeer = (id) => {
+  return {
+    type: REMOVE_FAVORITE_BEER,
     payload: {
       id,
     },

@@ -4,11 +4,12 @@ import {
   GET_BEER_LIST_SUCCESS,
   ADD_FAVORITE_BEER,
   GET_FAVORITE_BEERS_SUCCESS,
+  REMOVE_FAVORITE_BEER,
 } from '../actionTypes';
 
 const initialState = {
   beersList: [],
-  favoritesIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  favoritesIds: [],
   favorites: [],
   isLoading: false,
   error: null,
@@ -48,6 +49,19 @@ export default function beersList(state = initialState, action) {
       return {
         ...state,
         favoritesIds: [...favoritesBeers, id],
+      };
+    }
+    case REMOVE_FAVORITE_BEER: {
+      const { favoritesIds: favoritesBeersIds, favorites: favoritesBeers } = state;
+      const { id } = action.payload;
+
+      const updatedFavoritesIds = favoritesBeersIds.filter((beerId) => beerId !== id);
+      const updatedFavorites = favoritesBeers.filter((beer) => beer.id !== id);
+
+      return {
+        ...state,
+        favoritesIds: [...updatedFavoritesIds],
+        favorites: [...updatedFavorites],
       };
     }
     case GET_FAVORITE_BEERS_SUCCESS: {
