@@ -26,6 +26,10 @@
     .header__close-button {
       display: block;
       margin: 0 0 auto auto;
+      &:hover {
+        background-color: inherit;
+        color: $color--button-text;
+      }
 
       .close-button-icon {
         height: 1.2rem;

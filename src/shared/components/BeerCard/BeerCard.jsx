@@ -33,9 +33,11 @@ const BeerCard = ({
         {description && <p>{description}</p>}
         <div className="buttons-container">
           <Link to={`/beer/${id}`}>
-            <Button>open</Button>
+            <Button className="card__button">open</Button>
           </Link>
-          <Button onClick={onFavoriteClick}>{favorite ? 'remove favorite' : 'favorite'}</Button>
+          <Button className="card__button" onClick={onFavoriteClick}>
+            {favorite ? 'remove favorite' : 'favorite'}
+          </Button>
         </div>
       </div>
     </div>

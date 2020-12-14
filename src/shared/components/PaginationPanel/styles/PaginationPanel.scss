@@ -19,10 +19,6 @@
     border-radius: 0;
     transition: background 0.1s;
 
-    &:hover {
-      background-color: $color--pagination-active;
-    }
-
     &_first {
       margin: 0;
       border-radius: 10% 0 0 10%;

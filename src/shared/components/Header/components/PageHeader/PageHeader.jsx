@@ -25,11 +25,11 @@ export default class Header extends Component {
     return (
       <>
         <header className="header">
-          <Button onClick={this.onSwitchMenuState}>
+          <Button className="header__button" onClick={this.onSwitchMenuState}>
             <img className="header__menu-icon" src={menu} alt="menu" />
           </Button>
           <span className="header__page-title">{currentPage}</span>
-          <Button className="header__info-menu-button">
+          <Button className="header__button header__info-menu-button">
             <img className="header__menu-icon" src={menu2} alt="menu" />
           </Button>
         </header>

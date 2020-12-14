@@ -9,11 +9,13 @@
   padding: 0.3rem 0.5rem;
   margin: auto 0.25rem;
   color: $color--button-text;
-  transition: transform 0.1s;
+  transition: transform 0.1s, background 0.1s, color 0.1s;
 
   &:hover,
   &:focus {
     outline: none;
+    background-color: $color--button-active;
+    color: $color--button-text-active;
     cursor: pointer;
   }
 
