@@ -12,6 +12,14 @@ const PaginationPanel = (props) => {
     onChangePage(page);
   };
 
+  const setNextPage = () => {
+    onChangePage(currentPage < pages - 1 ? currentPage + 1 : pages - 1);
+  };
+
+  const setPreviousPage = () => {
+    onChangePage(currentPage > 1 ? currentPage - 1 : 0);
+  };
+
   const getPagesNums = () => {
     const pagesPanel = Array(pages).fill(null);
 
@@ -35,11 +43,19 @@ const PaginationPanel = (props) => {
 
   return (
     <div className="pagination">
-      <Button type="button" className="pagination__button pagination__button_first">
+      <Button
+        type="button"
+        className="pagination__button pagination__button_first"
+        onClick={setPreviousPage}
+      >
         «
       </Button>
       {getPagesNums()}
-      <Button type="button" className="pagination__button pagination__button_last">
+      <Button
+        type="button"
+        className="pagination__button pagination__button_last"
+        onClick={setNextPage}
+      >
         »
       </Button>
     </div>

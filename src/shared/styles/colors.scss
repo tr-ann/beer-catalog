@@ -1,12 +1,14 @@
 $white: white;
 $black: black;
 $gray: rgb(145, 145, 145);
+$light-gray: rgb(235, 235, 235);
 $blue: #106cc8;
 
 $color--main-text: $white;
 $color--secondary-text: $black;
 $color--background: $gray;
 $color--title-background: $blue;
+$color--background-hover: $light-gray;
 
 /* button */
 $color--button-text: $color--main-text;
@@ -32,4 +34,5 @@ $color--slider: $color--title-background;
 
 /* pagination */
 $color--pagination-text: $color--title-background;
+$color--pagination-active: $color--background-hover;
 $color--pagination-border: $color--background;

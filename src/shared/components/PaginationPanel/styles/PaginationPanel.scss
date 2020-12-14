@@ -8,7 +8,7 @@
 
   &__button {
     display: flex;
-    margin: 0;
+    margin: 0 0 0 -1px;
     justify-content: center;
     align-items: center;
     width: 2.5rem;
@@ -17,9 +17,14 @@
     color: $color--pagination-text;
     border: 1px solid $color--pagination-border;
     border-radius: 0;
-    border-left: none;
+    transition: background 0.1s;
+
+    &:hover {
+      background-color: $color--pagination-active;
+    }
 
     &_first {
+      margin: 0;
       border-radius: 10% 0 0 10%;
       border-left: 1px solid $color--pagination-border;
     }
@@ -29,7 +34,7 @@
     }
 
     &_selected {
-      background-color: beige;
+      background-color: $color--pagination-active;
     }
   }
 }
