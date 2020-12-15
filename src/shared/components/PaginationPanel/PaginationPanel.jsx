@@ -13,7 +13,7 @@ const PaginationPanel = (props) => {
   };
 
   const setNextPage = () => {
-    onChangePage(currentPage < pages - 1 ? currentPage + 1 : pages - 1);
+    onChangePage(currentPage >= pages - 1 ? pages - 1 : Number(currentPage) + 1);
   };
 
   const setPreviousPage = () => {
