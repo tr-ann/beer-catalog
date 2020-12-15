@@ -1,10 +1,17 @@
 import {
+  INITIAL_ALCOHOL_BY_VOLUME,
+  INITIAL_BITTERNESS_UNITS,
+  INITIAL_COLOR_BY_EBC,
+} from '../../shared/constants/beer/beerParams';
+import {
   GET_BEER_LIST_FAILURE,
   GET_BEER_STARTED,
   GET_BEER_LIST_SUCCESS,
   ADD_FAVORITE_BEER,
   GET_FAVORITE_BEERS_SUCCESS,
   REMOVE_FAVORITE_BEER,
+  SEARCH_BEERS_SUCCESS,
+  SET_SEARCH_PARAMS,
 } from '../actionTypes';
 
 const initialState = {
@@ -13,6 +20,12 @@ const initialState = {
   favorites: [],
   isLoading: false,
   error: null,
+  params: {
+    ibu: INITIAL_BITTERNESS_UNITS,
+    abv: INITIAL_ALCOHOL_BY_VOLUME,
+    ebc: INITIAL_COLOR_BY_EBC,
+    page: 1,
+  },
 };
 
 export default function beersList(state = initialState, action) {
@@ -24,7 +37,7 @@ export default function beersList(state = initialState, action) {
       };
     }
     case GET_BEER_LIST_SUCCESS: {
-      const { beersList: oldBeers } = state;
+      const { beersList: oldBeers, params: oldParams } = state;
       const {
         payload: { beers },
       } = action;
@@ -35,6 +48,7 @@ export default function beersList(state = initialState, action) {
 
       return {
         ...state,
+        params: { ...oldParams, page: oldParams.page + 1 },
         beersList: [...oldBeers, ...filteredBeers],
         isLoading: false,
       };
@@ -44,6 +58,24 @@ export default function beersList(state = initialState, action) {
         ...state,
         isLoading: false,
         error: action.payload.error,
+      };
+    }
+    case SET_SEARCH_PARAMS: {
+      const { params: newParams } = action.payload;
+
+      return {
+        ...state,
+        params: newParams,
+      };
+    }
+    case SEARCH_BEERS_SUCCESS: {
+      const { beers } = action.payload;
+      const { params: oldParams } = state;
+      return {
+        ...state,
+        isLoading: false,
+        params: { ...oldParams, page: oldParams.page + 1 },
+        beersList: [...beers],
       };
     }
     case ADD_FAVORITE_BEER: {

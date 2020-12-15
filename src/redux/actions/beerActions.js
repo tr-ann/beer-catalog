@@ -7,6 +7,8 @@ import {
   ADD_FAVORITE_BEER,
   GET_FAVORITE_BEERS_SUCCESS,
   REMOVE_FAVORITE_BEER,
+  SEARCH_BEERS_SUCCESS,
+  SET_SEARCH_PARAMS,
 } from '../actionTypes';
 
 const getBeerStarted = () => ({
@@ -38,15 +40,54 @@ const getFavoriteBeerSuccess = (favorites) => {
   };
 };
 
-export function getBeerList(params = {}) {
-  return async (dispatch) => {
+const searchBeersSuccess = (beers) => {
+  return {
+    type: SEARCH_BEERS_SUCCESS,
+    payload: {
+      beers,
+    },
+  };
+};
+
+const setSearchParams = (params) => {
+  return {
+    type: SET_SEARCH_PARAMS,
+    payload: {
+      params,
+    },
+  };
+};
+
+export function getBeerList(params) {
+  return async (dispatch, getState) => {
     dispatch(getBeerStarted());
 
+    const { params: stateParams } = getState();
+    const allParams = { ...params, ...stateParams };
+
     try {
-      const options = stringify(params, { skipEmptyString: true });
+      const options = stringify(allParams, { skipEmptyString: true });
       const res = await axios.get(`${process.env.REACT_APP_BEER_URL}?${options}`);
 
       dispatch(getBeerSuccess(res.data));
+    } catch (err) {
+      getBeerFailure(err);
+    }
+  };
+}
+
+export function searchBeers(params = {}) {
+  return async (dispatch, getState) => {
+    dispatch(getBeerStarted());
+    dispatch(setSearchParams({ ...params, page: 1 }));
+
+    const { params: updatedParams } = getState();
+
+    try {
+      const options = stringify(updatedParams, { skipEmptyString: true });
+      const res = await axios.get(`${process.env.REACT_APP_BEER_URL}?${options}`);
+
+      dispatch(searchBeersSuccess(res.data));
     } catch (err) {
       getBeerFailure(err);
     }
