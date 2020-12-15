@@ -73,6 +73,7 @@ export default function beersList(state = initialState, action) {
 
       return {
         ...state,
+        isLoading: false,
         favorites: [...beers],
       };
     }

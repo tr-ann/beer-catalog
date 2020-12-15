@@ -25,10 +25,13 @@ export default class FavoriteBeers extends Component {
   };
 
   render() {
+    const { children } = this.props;
+
     return (
       <div className="favorites">
-        <h2>Your favorite beers</h2>
+        <h2 className="favorites__title">Your favorite beers</h2>
         {this.getFavoritesBeers()}
+        {children}
       </div>
     );
   }
@@ -36,4 +39,9 @@ export default class FavoriteBeers extends Component {
 
 FavoriteBeers.propTypes = {
   beers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+};
+
+FavoriteBeers.defaultProps = {
+  children: null,
 };

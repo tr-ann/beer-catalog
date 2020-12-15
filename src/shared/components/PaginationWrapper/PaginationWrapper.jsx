@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import PaginationPanel from '../PaginationPanel/PaginationPanel';
 import { PAGE_ITEMS_AMOUNT } from '../../constants/pagination/pagination';
+import Spinner from '../Spinner/Spinner';
 
 export default function withPagination(WrappedComponent) {
   const ComponentWithPagination = (props) => {
-    const { data, doLoadData } = props;
+    const { data, isLoading, doLoadData } = props;
     const [page, setPage] = useState(0);
     const [currentItems, setCurrentItems] = useState([]);
 
@@ -25,27 +26,34 @@ export default function withPagination(WrappedComponent) {
     }, [data, page, setCurrentItems]);
 
     const pagesAmount = Math.ceil(data.length / PAGE_ITEMS_AMOUNT);
-    const { data: unnecessarry, ...propsForWrapped } = props;
+    const { data: unnecessary, ...propsForWrapped } = props;
+
+    const getPaginationPanel = () => {
+      return data.length ? (
+        <PaginationPanel pages={pagesAmount} currentPage={page} onChangePage={handleChangePage} />
+      ) : (
+        'The list is empty'
+      );
+    };
 
     return (
       <>
-        <WrappedComponent {...propsForWrapped} beers={currentItems} />
-        {data.length ? (
-          <PaginationPanel pages={pagesAmount} currentPage={page} onChangePage={handleChangePage} />
-        ) : (
-          'The list is empty'
-        )}
+        <WrappedComponent {...propsForWrapped} beers={currentItems}>
+          {isLoading ? <Spinner /> : getPaginationPanel()}
+        </WrappedComponent>
       </>
     );
   };
 
   ComponentWithPagination.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object),
+    isLoading: PropTypes.bool,
     doLoadData: PropTypes.func.isRequired,
   };
 
   ComponentWithPagination.defaultProps = {
     data: [],
+    isLoading: false,
   };
 
   return ComponentWithPagination;
