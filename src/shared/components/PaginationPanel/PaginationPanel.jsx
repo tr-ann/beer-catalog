@@ -9,15 +9,15 @@ const PaginationPanel = (props) => {
 
   const handleChangePage = (e) => {
     const page = e.target.value;
-    onChangePage(page);
+    onChangePage(Number(page));
   };
 
   const setNextPage = () => {
-    onChangePage(currentPage >= pages - 1 ? pages - 1 : Number(currentPage) + 1);
+    onChangePage(currentPage + 1);
   };
 
   const setPreviousPage = () => {
-    onChangePage(currentPage > 1 ? currentPage - 1 : 0);
+    onChangePage(currentPage - 1);
   };
 
   const getPagesNums = () => {
@@ -25,7 +25,7 @@ const PaginationPanel = (props) => {
 
     return pagesPanel.map((value, index) => {
       const classes = classNames('pagination__button', {
-        pagination__button_selected: Number(currentPage) === index,
+        pagination__button_selected: currentPage === index,
       });
       return (
         <Button
@@ -47,6 +47,7 @@ const PaginationPanel = (props) => {
         type="button"
         className="pagination__button pagination__button_first"
         onClick={setPreviousPage}
+        isDisabled={currentPage < 1}
       >
         «
       </Button>
@@ -55,6 +56,7 @@ const PaginationPanel = (props) => {
         type="button"
         className="pagination__button pagination__button_last"
         onClick={setNextPage}
+        isDisabled={currentPage > pages - 2}
       >
         »
       </Button>
@@ -67,7 +69,7 @@ export default PaginationPanel;
 PaginationPanel.propTypes = {
   pages: PropTypes.number.isRequired,
   onChangePage: PropTypes.func.isRequired,
-  currentPage: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  currentPage: PropTypes.number,
 };
 
 PaginationPanel.defaultProps = {
