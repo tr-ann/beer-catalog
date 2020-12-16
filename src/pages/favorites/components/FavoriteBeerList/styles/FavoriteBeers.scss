@@ -1,0 +1,10 @@
+.favorites {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 50rem;
+
+  &__title {
+    align-self: center;
+  }
+}

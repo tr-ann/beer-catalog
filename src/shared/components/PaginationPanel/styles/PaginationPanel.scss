@@ -1,0 +1,35 @@
+@import '../../../styles/colors.scss';
+
+.pagination {
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: 1rem;
+
+  &__button {
+    display: flex;
+    margin: 0 0 0 -1px;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2rem;
+    background-color: inherit;
+    color: $color--pagination-text;
+    border: 1px solid $color--pagination-border;
+    border-radius: 0;
+    transition: background 0.1s;
+
+    &_first {
+      margin: 0;
+      border-radius: 10% 0 0 10%;
+      border-left: 1px solid $color--pagination-border;
+    }
+
+    &_last {
+      border-radius: 0 10% 10% 0;
+    }
+
+    &_selected {
+      background-color: $color--pagination-active;
+    }
+  }
+}

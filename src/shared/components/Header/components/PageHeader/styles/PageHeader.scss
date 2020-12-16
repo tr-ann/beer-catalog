@@ -18,6 +18,13 @@
     height: 1.5rem;
   }
 
+  &__button {
+    &:hover {
+      background-color: inherit;
+      color: $color--button-text;
+    }
+  }
+
   &__info-menu-button {
     margin: auto 2rem auto auto;
   }

@@ -4,6 +4,7 @@ import withInfiniteScroll from '../../../../shared/components/InfiniteScrollWrap
 import {
   selectBeers,
   selectError,
+  selectFavoritesIds,
   selectIsLoading,
 } from '../../../../redux/selectors/beersSelector';
 import BeerList from './BeerList';
@@ -11,6 +12,7 @@ import BeerList from './BeerList';
 const mapStateToProps = (state) => ({
   beers: selectBeers(state),
   error: selectError(state),
+  favoritesIds: selectFavoritesIds(state),
   isLoading: selectIsLoading(state),
 });
 
