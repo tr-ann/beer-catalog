@@ -13,7 +13,7 @@ const BeerCard = ({
   title,
   tagline,
   description,
-  favorite,
+  isFavorite,
   className,
 }) => {
   const cardClass = classNames('card', className, {
@@ -21,7 +21,7 @@ const BeerCard = ({
   });
   const cardBodyClass = classNames('card__body', { 'card__body_more-info': description });
 
-  const onFavoriteClick = () => (favorite ? doRemoveFavorite(id) : doAddFavorite(id));
+  const onFavoriteClick = () => (isFavorite ? doRemoveFavorite(id) : doAddFavorite(id));
 
   return (
     <div className={cardClass}>
@@ -35,7 +35,7 @@ const BeerCard = ({
             <Button className="card__button">open</Button>
           </Link>
           <Button className="card__button" onClick={onFavoriteClick}>
-            {favorite ? 'remove favorite' : 'favorite'}
+            {isFavorite ? 'remove favorite' : 'favorite'}
           </Button>
         </div>
       </div>
@@ -46,7 +46,7 @@ const BeerCard = ({
 export default BeerCard;
 
 BeerCard.propTypes = {
-  favorite: PropTypes.bool,
+  isFavorite: PropTypes.bool,
   doAddFavorite: PropTypes.func.isRequired,
   doRemoveFavorite: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
@@ -58,7 +58,7 @@ BeerCard.propTypes = {
 };
 
 BeerCard.defaultProps = {
-  favorite: false,
+  isFavorite: false,
   description: '',
   className: '',
   image: '',

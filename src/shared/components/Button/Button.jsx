@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import './styles/Button.scss';
 
-const Button = ({ bright, onClick, value, children, className }) => {
+const Button = ({ isBright, onClick, value, children, className }) => {
   const classes = classNames('button', className, {
-    button_bright: bright,
+    button_bright: isBright,
   });
 
   return (
@@ -18,7 +18,7 @@ const Button = ({ bright, onClick, value, children, className }) => {
 export default Button;
 
 Button.propTypes = {
-  bright: PropTypes.bool,
+  isBright: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.node,
   className: PropTypes.string,
@@ -26,7 +26,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  bright: false,
+  isBright: false,
   children: '',
   className: '',
   onClick: null,

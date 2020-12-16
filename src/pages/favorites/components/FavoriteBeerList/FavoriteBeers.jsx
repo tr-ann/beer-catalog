@@ -16,7 +16,7 @@ export default class FavoriteBeers extends Component {
           title={beer.name}
           description={beer.description}
           tagline={beer.tagline}
-          favorite
+          isFavorite
         />
       );
     });

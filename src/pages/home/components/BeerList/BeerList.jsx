@@ -24,7 +24,7 @@ export default class BeerList extends Component {
           image={beer.image_url}
           title={beer.name}
           tagline={beer.tagline}
-          favorite={this.isFavoriteBeer(beer.id)}
+          isFavorite={this.isFavoriteBeer(beer.id)}
         />
       );
     });
