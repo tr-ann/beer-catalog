@@ -12,6 +12,7 @@ import {
   REMOVE_FAVORITE_BEER,
   SEARCH_BEERS_SUCCESS,
   SET_SEARCH_PARAMS,
+  RESET_SEARCH_PARAMS,
 } from '../actionTypes';
 
 const initialState = {
@@ -44,7 +45,7 @@ export default function beersList(state = initialState, action) {
 
       const filteredBeers = beers.filter((loadedBeer) => {
         const found = oldBeers.find((beer) => loadedBeer.id === beer.id);
-        return Boolean(found);
+        return !found;
       });
 
       return {
@@ -67,6 +68,14 @@ export default function beersList(state = initialState, action) {
       return {
         ...state,
         params: newParams,
+      };
+    }
+    case RESET_SEARCH_PARAMS: {
+      const { params: defaultParams } = action.payload;
+
+      return {
+        ...state,
+        params: defaultParams,
       };
     }
     case SEARCH_BEERS_SUCCESS: {

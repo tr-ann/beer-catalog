@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { stringify } from 'query-string';
 import {
+  INITIAL_ALCOHOL_BY_VOLUME,
+  INITIAL_BITTERNESS_UNITS,
+  INITIAL_COLOR_BY_EBC,
+} from '../../shared/constants/beer/beerParams';
+import {
   GET_BEER_STARTED,
   GET_BEER_LIST_SUCCESS,
   GET_BEER_LIST_FAILURE,
@@ -9,6 +14,7 @@ import {
   REMOVE_FAVORITE_BEER,
   SEARCH_BEERS_SUCCESS,
   SET_SEARCH_PARAMS,
+  RESET_SEARCH_PARAMS,
 } from '../actionTypes';
 
 const getBeerStarted = () => ({
@@ -58,15 +64,28 @@ const setSearchParams = (params) => {
   };
 };
 
-export function getBeerList(params) {
+const resetSearchParams = () => {
+  return {
+    type: RESET_SEARCH_PARAMS,
+    payload: {
+      params: {
+        ibu: INITIAL_BITTERNESS_UNITS,
+        abv: INITIAL_ALCOHOL_BY_VOLUME,
+        ebc: INITIAL_COLOR_BY_EBC,
+        page: 1,
+      },
+    },
+  };
+};
+
+export function getBeerList() {
   return async (dispatch, getState) => {
     dispatch(getBeerStarted());
 
-    const { params: stateParams } = getState();
-    const allParams = { ...params, ...stateParams };
+    const { params } = getState();
 
     try {
-      const options = stringify(allParams, { skipEmptyString: true });
+      const options = stringify(params, { skipEmptyString: true });
       const res = await axios.get(`${process.env.REACT_APP_BEER_URL}?${options}`);
 
       dispatch(getBeerSuccess(res.data));
@@ -79,7 +98,11 @@ export function getBeerList(params) {
 export function searchBeers(params = {}) {
   return async (dispatch, getState) => {
     dispatch(getBeerStarted());
-    dispatch(setSearchParams({ ...params, page: 1 }));
+    if (params.beer_name) {
+      dispatch(setSearchParams({ ...params, page: 1 }));
+    } else {
+      dispatch(resetSearchParams());
+    }
 
     const { params: updatedParams } = getState();
 
