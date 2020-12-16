@@ -42,9 +42,10 @@ export default function beersList(state = initialState, action) {
         payload: { beers },
       } = action;
 
-      const filteredBeers = beers.filter(
-        (loadedBeer) => oldBeers.findIndex((beer) => loadedBeer.id === beer.id) === -1
-      );
+      const filteredBeers = beers.filter((loadedBeer) => {
+        const found = oldBeers.find((beer) => loadedBeer.id === beer.id);
+        return Boolean(found);
+      });
 
       return {
         ...state,
