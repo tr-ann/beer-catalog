@@ -13,6 +13,7 @@ import {
   SEARCH_BEERS_SUCCESS,
   SET_SEARCH_PARAMS,
   RESET_SEARCH_PARAMS,
+  GET_BEER_INFO_SUCCESS,
 } from '../actionTypes';
 
 const initialState = {
@@ -27,6 +28,7 @@ const initialState = {
     ebc: INITIAL_COLOR_BY_EBC,
     page: 1,
   },
+  beerInfo: {},
 };
 
 export default function beersList(state = initialState, action) {
@@ -117,6 +119,15 @@ export default function beersList(state = initialState, action) {
         ...state,
         isLoading: false,
         favorites: [...beers],
+      };
+    }
+    case GET_BEER_INFO_SUCCESS: {
+      const { beer } = action.payload;
+
+      return {
+        ...state,
+        isLoading: false,
+        beerInfo: beer,
       };
     }
     default:
