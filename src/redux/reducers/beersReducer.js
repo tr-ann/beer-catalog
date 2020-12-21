@@ -28,7 +28,7 @@ const initialState = {
     ebc: INITIAL_COLOR_BY_EBC,
     page: 1,
   },
-  beerInfo: {},
+  beerInfo: null,
 };
 
 export default function beersList(state = initialState, action) {
@@ -126,8 +126,8 @@ export default function beersList(state = initialState, action) {
 
       return {
         ...state,
-        isLoading: false,
         beerInfo: beer,
+        isLoading: false,
       };
     }
     default:
