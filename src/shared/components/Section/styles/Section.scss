@@ -1,0 +1,13 @@
+@import '../../../styles/colors.scss';
+
+.section {
+  &__body {
+    display: inline-grid;
+    grid-template-columns: 1fr;
+
+    &_bordered {
+      border: 1px solid $color--section-border;
+      grid-gap: 1px;
+    }
+  }
+}
