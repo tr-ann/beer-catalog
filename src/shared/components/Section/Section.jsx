@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import './styles/Section.scss';
 
-const Section = ({ title, children, className, isBordered }) => {
-  const sectionClasses = classNames('section', className);
+const Section = ({ title, children, className, isBordered, isSmall }) => {
+  const sectionClasses = classNames('section', className, {
+    section_small: isSmall,
+  });
   const sectionBodyClasses = classNames('section__body', {
     section__body_bordered: isBordered,
   });
 
   return (
     <div className={sectionClasses}>
-      <h2>{title}</h2>
+      {title ? <h2 className="section__title">{title}</h2> : null}
       <div className={sectionBodyClasses}>{children}</div>
     </div>
   );
@@ -28,6 +31,7 @@ Section.propTypes = {
   ]),
   className: PropTypes.string,
   isBordered: PropTypes.bool,
+  isSmall: PropTypes.bool,
 };
 
 Section.defaultProps = {
@@ -35,4 +39,5 @@ Section.defaultProps = {
   children: '',
   className: '',
   isBordered: false,
+  isSmall: false,
 };

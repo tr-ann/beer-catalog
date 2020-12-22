@@ -3,11 +3,43 @@
 .section {
   &__body {
     display: inline-grid;
+    box-sizing: border-box;
     grid-template-columns: 1fr;
+    width: 100%;
+    font-size: 1.1rem;
+    gap: -1px;
 
     &_bordered {
-      border: 1px solid $color--section-border;
-      grid-gap: 1px;
+      .section:nth-child(n) {
+        margin-top: -1px;
+        box-sizing: border-box;
+        border: 1px solid $color--section-border;
+        padding: 0.5rem 1rem;
+      }
+
+      .section:first-child {
+        border-radius: 0.3rem 0.3rem 0 0;
+      }
+
+      .section:last-child {
+        border-radius: 0 0 0.3rem 0.3rem;
+      }
+    }
+  }
+
+  &_small {
+    &:not(.section__body_bordered) {
+      padding: 0.5rem 0;
+    }
+
+    .section {
+      &__title {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+      &__body {
+        font-size: 0.9rem;
+      }
     }
   }
 }
