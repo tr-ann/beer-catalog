@@ -1,0 +1,14 @@
+.brewing {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  &__text-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__text {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}
