@@ -3,18 +3,21 @@ $black: black;
 $gray: rgb(145, 145, 145);
 $light-gray: rgb(235, 235, 235);
 $blue: #106cc8;
+$dark-blue: #0e5297;
 
 $color--main-text: $white;
 $color--secondary-text: $black;
 $color--background: $gray;
 $color--title-background: $blue;
 $color--background-hover: $light-gray;
+$color--link: $dark-blue;
 
 /* button */
 $color--button-text: $color--main-text;
 $color--button-text-active: $color--secondary-text;
 $color--button-active: $color--background-hover;
 $color--button--bright-background: $color--title-background;
+$color--button--bright-hover: $color--link;
 
 /* input */
 $color--input-text: $color--background;
