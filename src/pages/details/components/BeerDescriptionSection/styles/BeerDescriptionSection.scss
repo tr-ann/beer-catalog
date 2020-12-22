@@ -1,0 +1,43 @@
+@import '../../../../../shared/styles/colors.scss';
+
+.description-section {
+  display: flex;
+  flex-flow: row nowrap;
+
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  &__body {
+    width: 100%;
+    max-width: 60rem;
+    font-size: 1.1rem;
+
+    .body {
+      &__name {
+        margin: 0;
+      }
+
+      &__tagline {
+        display: block;
+        font-style: italic;
+        font-size: 1rem;
+        color: $color--section-border;
+      }
+
+      &__button {
+        margin: 1rem 0;
+        padding: 0.7rem 1.3rem;
+      }
+
+      &__description {
+        display: block;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__image {
+    margin: 0.5rem 1.5rem;
+    height: 15rem;
+  }
+}

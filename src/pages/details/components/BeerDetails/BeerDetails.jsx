@@ -7,6 +7,7 @@ import FoodPairingSection from '../FoodPairingSection/FoodPairingSection';
 import PropertiesSection from '../PropertiesSection/PropertiesSection';
 import MethodSection from '../MethodSection/MethodSection';
 import BrewingSection from '../BrewingSection/BrewingSection';
+import BeerDescriptionSectionContainer from '../BeerDescriptionSection/BeerDescriptionSectionContainer';
 
 export default class BeerDetails extends Component {
   componentDidMount() {
@@ -26,6 +27,7 @@ export default class BeerDetails extends Component {
       'Load data'
     ) : (
       <div className="beer-details">
+        <BeerDescriptionSectionContainer beer={beer} />
         <PropertiesSection abv={beer?.abv} ibu={beer?.ibu} ebc={beer?.ebc} />
         <FoodPairingSection foodPairing={beer?.food_pairing} />
         <BrewingSection brewing={beer?.brewers_tips} />
