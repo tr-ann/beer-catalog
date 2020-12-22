@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Section from '../../../../shared/components/Section/Section';
+import './styles/IngredientsSection.scss';
 
-export default function IngredientsSection({ ingredients }) {
+const IngredientsSection = ({ ingredients }) => {
   const getMalt = () => {
     const maltList = ingredients.malt.map((item) => {
       const {
@@ -11,7 +12,11 @@ export default function IngredientsSection({ ingredients }) {
       } = item;
       return <div key={name + value}>{`"${name}" - ${value} ${unit}`}</div>;
     });
-    return <Section title="malt">{maltList}</Section>;
+    return (
+      <Section isSmall title="Malt">
+        {maltList}
+      </Section>
+    );
   };
 
   const getHops = () => {
@@ -23,26 +28,38 @@ export default function IngredientsSection({ ingredients }) {
       } = item;
       return <div key={name + value}>{`"${name}" - ${value} ${unit}, add when ${add}`}</div>;
     });
-    return <Section title="hops">{hopsList}</Section>;
+    return (
+      <Section isSmall title="Hops">
+        {hopsList}
+      </Section>
+    );
   };
 
   const getYeast = () => {
     const { yeast } = ingredients;
 
-    return <Section title="yeast">{yeast}</Section>;
+    return (
+      <Section isSmall title="Yeast">
+        {yeast}
+      </Section>
+    );
   };
 
   return ingredients ? (
-    <Section>
+    <Section isBordered title="Ingredients" className="ingredients-section">
       {getMalt()}
       {getHops()}
       {getYeast()}
     </Section>
   ) : null;
-}
+};
+
+export default IngredientsSection;
 
 IngredientsSection.propTypes = {
-  ingredients: PropTypes.objectOf(PropTypes.object),
+  ingredients: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.object), PropTypes.string])
+  ),
 };
 
 IngredientsSection.defaultProps = {
