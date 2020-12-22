@@ -15,7 +15,7 @@ const FoodPairingSection = ({ foodPairing }) => {
   };
 
   return foodPairing ? (
-    <Section isBordered title="Food Pairing">
+    <Section isBordered title="Food Pairing" className="food-pairing">
       {getPairing()}
     </Section>
   ) : null;
