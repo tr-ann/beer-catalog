@@ -44,13 +44,15 @@ const MethodSection = ({ method }) => {
     ) : null;
   };
 
-  return method ? (
-    <Section title="Method">
-      {getMash()}
-      {getFermentation()}
-      {getTwist()}
-    </Section>
-  ) : null;
+  return (
+    method && (
+      <Section title="Method">
+        {getMash()}
+        {getFermentation()}
+        {getTwist()}
+      </Section>
+    )
+  );
 };
 
 export default MethodSection;

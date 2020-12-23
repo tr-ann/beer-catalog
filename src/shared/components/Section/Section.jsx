@@ -13,7 +13,7 @@ const Section = ({ title, children, className, isBordered, isSmall }) => {
 
   return (
     <div className={sectionClasses}>
-      {title ? <h2 className="section__title">{title}</h2> : null}
+      {title && <h2 className="section__title">{title}</h2>}
       <div className={sectionBodyClasses}>{children}</div>
     </div>
   );

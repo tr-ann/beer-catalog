@@ -45,13 +45,15 @@ const IngredientsSection = ({ ingredients }) => {
     );
   };
 
-  return ingredients ? (
-    <Section isBordered title="Ingredients" className="ingredients-section">
-      {getMalt()}
-      {getHops()}
-      {getYeast()}
-    </Section>
-  ) : null;
+  return (
+    ingredients && (
+      <Section isBordered title="Ingredients" className="ingredients-section">
+        {getMalt()}
+        {getHops()}
+        {getYeast()}
+      </Section>
+    )
+  );
 };
 
 export default IngredientsSection;

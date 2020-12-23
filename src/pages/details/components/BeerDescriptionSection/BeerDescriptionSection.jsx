@@ -13,7 +13,7 @@ const BeerDescriptionSection = ({
 }) => {
   if (!beer) return null;
 
-  const isFavorite = favorites.includes(beer.id || 0);
+  const isFavorite = favorites.includes(beer.id);
 
   const onFavoriteClick = () => (isFavorite ? doRemoveFavorite(beer.id) : doAddFavorite(beer.id));
 
