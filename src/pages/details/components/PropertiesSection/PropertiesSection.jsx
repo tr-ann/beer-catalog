@@ -1,24 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Section from '../../../../shared/components/Section/Section';
+import infoIcon from '../../../../shared/images/details/info.svg';
 import './styles/PropertiesSection.scss';
 
 const PropertiesSection = ({ abv, ibu, ebc }) => {
   return (
     <Section isBordered title="Property" className="property-section">
       <div className="section beer-property">
-        ABV
-        <img src="" alt="prop" />
+        <div>
+          ABV
+          <img className="property__info" src={infoIcon} alt="prop" />
+        </div>
         <span>{abv}</span>
       </div>
       <div className="section beer-property">
-        IBU
-        <img src="" alt="prop" />
+        <div>
+          IBU
+          <img className="property__info" src={infoIcon} alt="prop" />
+        </div>
         <span>{ibu}</span>
       </div>
       <div className="section beer-property">
-        EBC
-        <img src="" alt="prop" />
+        <div>
+          EBC
+          <img className="property__info" src={infoIcon} alt="prop" />
+        </div>
         <span>{ebc}</span>
       </div>
     </Section>

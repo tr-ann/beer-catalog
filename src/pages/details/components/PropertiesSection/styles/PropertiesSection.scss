@@ -6,4 +6,10 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .property__info {
+    display: inline-block;
+    height: 1rem;
+    margin: 0 0.7rem;
+  }
 }
