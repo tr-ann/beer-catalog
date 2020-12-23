@@ -26,7 +26,7 @@ const IngredientsSection = ({ ingredients }) => {
         amount: { value, unit },
         add,
       } = item;
-      return <div key={name + value}>{`"${name}" - ${value} ${unit}, add when ${add}`}</div>;
+      return <div key={name + value + add}>{`"${name}" - ${value} ${unit}, add when ${add}`}</div>;
     });
     return (
       <Section isSmall title="Hops">
