@@ -8,6 +8,7 @@ import PropertiesSection from '../PropertiesSection/PropertiesSection';
 import MethodSection from '../MethodSection/MethodSection';
 import BrewingSection from '../BrewingSection/BrewingSection';
 import BeerDescriptionSectionContainer from '../BeerDescriptionSection/BeerDescriptionSectionContainer';
+import Spinner from '../../../../shared/components/Spinner/Spinner';
 
 export default class BeerDetails extends Component {
   componentDidMount() {
@@ -24,7 +25,7 @@ export default class BeerDetails extends Component {
     const { beer, isLoading } = this.props;
 
     return isLoading ? (
-      'Load data'
+      <Spinner />
     ) : (
       <div className="beer-details">
         <BeerDescriptionSectionContainer beer={beer} />
