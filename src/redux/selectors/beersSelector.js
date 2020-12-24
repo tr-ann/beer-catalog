@@ -1,11 +1,11 @@
-export const selectBeers = (state) => state.beersList;
+export const selectBeers = (state) => state.beers.beersList;
 
-export const selectError = (state) => state.error;
+export const selectError = (state) => state.beers.error;
 
-export const selectIsLoading = (state) => state.isLoading;
+export const selectIsLoading = (state) => state.beers.isLoading;
 
-export const selectFavoritesIds = (state) => state.favoritesIds;
+export const selectFavoritesIds = (state) => state.beers.favoritesIds;
 
-export const selectFavorites = (state) => state.favorites;
+export const selectFavorites = (state) => state.beers.favorites;
 
-export const selectBeerInfo = (state) => state.beerInfo;
+export const selectBeerInfo = (state) => state.beers.beerInfo;

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import './styles/Input.scss';
 
-const Input = ({ className, placeholder, value, onChange, onSubmit }) => {
+const Input = ({ className, placeholder, value, onChange, onSubmit, type }) => {
   const inputClass = classNames('input', className);
 
   const onKeyPress = (e) => {
@@ -14,7 +14,7 @@ const Input = ({ className, placeholder, value, onChange, onSubmit }) => {
 
   return (
     <input
-      type="text"
+      type={type}
       value={value}
       className={inputClass}
       placeholder={placeholder}
@@ -32,9 +32,11 @@ Input.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
+  type: PropTypes.string,
 };
 
 Input.defaultProps = {
   className: '',
   placeholder: 'type...',
+  type: 'text',
 };

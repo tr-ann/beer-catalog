@@ -80,7 +80,9 @@ export function getBeerList() {
   return async (dispatch, getState) => {
     dispatch(getBeerStarted());
 
-    const { params } = getState();
+    const {
+      beers: { params },
+    } = getState();
 
     try {
       const options = stringify(params, { skipEmptyString: true });
@@ -102,7 +104,9 @@ export function searchBeers(params = {}) {
       dispatch(resetSearchParams());
     }
 
-    const { params: updatedParams } = getState();
+    const {
+      beers: { params: updatedParams },
+    } = getState();
 
     try {
       const options = stringify(updatedParams, { skipEmptyString: true });
@@ -120,7 +124,9 @@ export function getFavoriteBeer() {
     dispatch(getBeerStarted());
 
     try {
-      const { favoritesIds } = getState();
+      const {
+        beers: { favoritesIds },
+      } = getState();
       const ids = favoritesIds.join('|');
 
       const res = await axios.get(`${process.env.REACT_APP_BEER_URL}?ids=${ids}`);
