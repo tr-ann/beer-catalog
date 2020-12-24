@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../../shared/components/Input/Input';
 import Button from '../../shared/components/Button/Button';
-import './styles/LoginPage.scss';
 import ROUTES from '../../shared/constants/paths/paths';
+import './styles/LoginPage.scss';
 
 export default class LoginPage extends Component {
   constructor(props) {
@@ -50,14 +50,20 @@ export default class LoginPage extends Component {
     return (
       <div className="login-page">
         {error && <div>{error}</div>}
-        <Input value={login} onChange={this.onLoginChange} placeholder="login" />
         <Input
+          className="login-page__input"
+          value={login}
+          onChange={this.onLoginChange}
+          placeholder="login"
+        />
+        <Input
+          className="login-page__input"
           type="password"
           value={password}
           onChange={this.onPasswordChange}
           placeholder="password"
         />
-        <Button isBright onClick={this.doLogin}>
+        <Button isBright className="login-page__button" onClick={this.doLogin}>
           Login
         </Button>
       </div>
