@@ -29,5 +29,15 @@
 
   &_bright {
     background-color: $color--button--bright-background;
+
+    &:hover,
+    &:focus {
+      background-color: $color--button--bright-hover;
+      color: $color--button-text;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
   }
 }

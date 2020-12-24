@@ -1,0 +1,27 @@
+@import '../../../styles/colors.scss';
+
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  border-radius: 0.2rem;
+  background-color: $color--tooltip-background;
+  color: $color--tooltip-text;
+  font-size: 1rem;
+  min-width: max-content;
+  z-index: 10;
+  box-shadow: 1px 1px 10px $color--tooltip-shadow;
+}
+
+.position {
+  &_top {
+    bottom: 130%;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+}

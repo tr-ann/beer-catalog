@@ -15,6 +15,7 @@ import {
   SEARCH_BEERS_SUCCESS,
   SET_SEARCH_PARAMS,
   RESET_SEARCH_PARAMS,
+  GET_BEER_INFO_SUCCESS,
 } from '../actionTypes';
 
 const getBeerStarted = () => ({
@@ -23,44 +24,34 @@ const getBeerStarted = () => ({
 
 const getBeerFailure = (error) => ({
   type: GET_BEER_LIST_FAILURE,
-  payload: {
-    error,
-  },
+  payload: { error },
 });
 
 const getBeerSuccess = (beers) => {
   return {
     type: GET_BEER_LIST_SUCCESS,
-    payload: {
-      beers,
-    },
+    payload: { beers },
   };
 };
 
 const getFavoriteBeerSuccess = (favorites) => {
   return {
     type: GET_FAVORITE_BEERS_SUCCESS,
-    payload: {
-      favorites,
-    },
+    payload: { favorites },
   };
 };
 
 const searchBeersSuccess = (beers) => {
   return {
     type: SEARCH_BEERS_SUCCESS,
-    payload: {
-      beers,
-    },
+    payload: { beers },
   };
 };
 
 const setSearchParams = (params) => {
   return {
     type: SET_SEARCH_PARAMS,
-    payload: {
-      params,
-    },
+    payload: { params },
   };
 };
 
@@ -75,6 +66,13 @@ const resetSearchParams = () => {
         page: 1,
       },
     },
+  };
+};
+
+const getBeerInfoSuccess = (beer) => {
+  return {
+    type: GET_BEER_INFO_SUCCESS,
+    payload: { beer },
   };
 };
 
@@ -136,17 +134,27 @@ export function getFavoriteBeer() {
 export const addFavoriteBeer = (id) => {
   return {
     type: ADD_FAVORITE_BEER,
-    payload: {
-      id,
-    },
+    payload: { id },
   };
 };
 
 export const removeFavoriteBeer = (id) => {
   return {
     type: REMOVE_FAVORITE_BEER,
-    payload: {
-      id,
-    },
+    payload: { id },
+  };
+};
+
+export const getBeerInfo = (id) => {
+  return async (dispatch) => {
+    dispatch(getBeerStarted());
+
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_BEER_URL}/${id}`);
+
+      dispatch(getBeerInfoSuccess(res.data[0]));
+    } catch (err) {
+      getBeerFailure(err);
+    }
   };
 };

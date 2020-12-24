@@ -12,3 +12,7 @@ export const MIN_COLOR_BY_EBC = 4;
 export const MAX_COLOR_BY_EBC = 80;
 export const STEP_COLOR_BY_EBC = 1;
 export const INITIAL_COLOR_BY_EBC = MIN_COLOR_BY_EBC;
+
+export const ABV_DESCRIPTION = 'Alcohol by volume';
+export const IBU_DESCRIPTION = 'International Bitterness Units';
+export const EBC_DESCRIPTION = 'European Brewery Convention';
