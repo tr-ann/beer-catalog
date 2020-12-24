@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../../../../shared/components/Header/components/PageHeader/PageHeaderContainer';
+import Header from '../../../../shared/components/Header/components/PageHeader/PageHeader';
 import FavoriteBeersContainer from '../FavoriteBeerList/FavoriteBeersContainer';
 import ROUTES from '../../../../shared/constants/paths/paths';
 

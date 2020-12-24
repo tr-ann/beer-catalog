@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from '../../../Button/Button';
 import Sidebar from '../Sidebar/Sidebar';
@@ -20,11 +19,10 @@ export default class Header extends Component {
   };
 
   render() {
-    const { currentPage, user } = this.props;
+    const { currentPage } = this.props;
     const { isSidebarHidden } = this.state;
-    const { login } = ROUTES;
 
-    return user ? (
+    return (
       <>
         <header className="header">
           <Button className="header__button" onClick={this.onSwitchMenuState}>
@@ -41,18 +39,14 @@ export default class Header extends Component {
           onClose={this.onSwitchMenuState}
         />
       </>
-    ) : (
-      <Redirect to={login.url} />
     );
   }
 }
 
 Header.propTypes = {
-  user: PropTypes.objectOf(PropTypes.object),
   currentPage: PropTypes.string,
 };
 
 Header.defaultProps = {
   currentPage: ROUTES.home,
-  user: null,
 };
