@@ -16,14 +16,9 @@ export default class LoginPage extends Component {
     };
   }
 
-  onLoginChange = (e) => {
-    const { value } = e.target;
-    this.setState({ login: value });
-  };
-
-  onPasswordChange = (e) => {
-    const { value } = e.target;
-    this.setState({ password: value });
+  onInputChange = (e) => {
+    const { id, value } = e.target;
+    this.setState({ [id]: value });
   };
 
   doLogin = () => {
@@ -51,16 +46,20 @@ export default class LoginPage extends Component {
       <div className="login-page">
         {error && <div>{error}</div>}
         <Input
+          id="login"
           className="login-page__input"
           value={login}
-          onChange={this.onLoginChange}
+          onChange={this.onInputChange}
+          onSubmit={() => {}}
           placeholder="login"
         />
         <Input
+          id="password"
           className="login-page__input"
           type="password"
           value={password}
-          onChange={this.onPasswordChange}
+          onChange={this.onInputChange}
+          onSubmit={() => {}}
           placeholder="password"
         />
         <Button isBright className="login-page__button" onClick={this.doLogin}>
