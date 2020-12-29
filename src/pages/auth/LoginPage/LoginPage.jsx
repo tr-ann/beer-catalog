@@ -24,7 +24,7 @@ export default class LoginPage extends Component {
 
   doLogin = () => {
     const { login, password } = this.state;
-    const { history } = this.props;
+    const { history, doSetFavorites } = this.props;
     const { home } = ROUTES;
 
     const users = JSON.parse(localStorage.getItem('users'));
@@ -36,6 +36,7 @@ export default class LoginPage extends Component {
     }
 
     sessionStorage.setItem('user', JSON.stringify(user));
+    doSetFavorites(user.favorites || []);
     history.push(home.url);
     return null;
   };
@@ -80,5 +81,6 @@ export default class LoginPage extends Component {
 }
 
 LoginPage.propTypes = {
+  doSetFavorites: PropTypes.func.isRequired,
   history: PropTypes.objectOf(PropTypes.object).isRequired,
 };

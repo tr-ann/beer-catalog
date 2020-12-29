@@ -31,8 +31,8 @@ export default class RegistrationPage extends Component {
     const { history } = this.props;
     const { home } = ROUTES;
 
-    const users = JSON.parse(localStorage.getItem('users'));
-    const isUserExist = Boolean(users?.find((item) => item.login === login));
+    const users = localStorage.getItem('users') || [];
+    const isUserExist = Boolean(users.find((item) => item.login === login));
 
     if (isUserExist) {
       this.setState({ error: 'Such login is already exists' });
@@ -41,10 +41,9 @@ export default class RegistrationPage extends Component {
 
     const newUser = { login, password, birthday, name, email, picture };
 
-    users.push(newUser);
-
-    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('users', JSON.stringify([...users, newUser]));
     sessionStorage.setItem('user', JSON.stringify(newUser));
+
     history.push(home.url);
     return null;
   };

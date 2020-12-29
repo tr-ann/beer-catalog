@@ -16,6 +16,7 @@ import {
   SET_SEARCH_PARAMS,
   RESET_SEARCH_PARAMS,
   GET_BEER_INFO_SUCCESS,
+  SET_FAVORITE_BEERS,
 } from '../actionTypes';
 
 const getBeerStarted = () => ({
@@ -119,6 +120,13 @@ export function searchBeers(params = {}) {
   };
 }
 
+export const setFavoriteBeers = (favorites) => {
+  return {
+    type: SET_FAVORITE_BEERS,
+    payload: { favorites },
+  };
+};
+
 export function getFavoriteBeer() {
   return async (dispatch, getState) => {
     dispatch(getBeerStarted());
@@ -138,6 +146,13 @@ export function getFavoriteBeer() {
 }
 
 export const addFavoriteBeer = (id) => {
+  const users = JSON.parse(localStorage.getItem('users'));
+  const user = JSON.parse(sessionStorage.getItem('user'));
+
+  user.favorites = [...(user.favorites || []), id];
+  localStorage.setItem('users', JSON.stringify(users.map((x) => (x.id === user.id ? user : x))));
+  sessionStorage.setItem('user', JSON.stringify(user));
+
   return {
     type: ADD_FAVORITE_BEER,
     payload: { id },
@@ -145,6 +160,17 @@ export const addFavoriteBeer = (id) => {
 };
 
 export const removeFavoriteBeer = (id) => {
+  const users = JSON.parse(localStorage.getItem('users'));
+  const user = JSON.parse(sessionStorage.getItem('user'));
+
+  user.favorites = user.favorites.filter((x) => x !== id);
+
+  localStorage.setItem(
+    'users',
+    JSON.stringify(users.map((x) => (x.login === user.login ? user : x)))
+  );
+  sessionStorage.setItem('user', JSON.stringify(user));
+
   return {
     type: REMOVE_FAVORITE_BEER,
     payload: { id },
