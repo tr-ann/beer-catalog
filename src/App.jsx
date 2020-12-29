@@ -5,16 +5,18 @@ import PrivateRoute from './shared/components/PrivateRoute/PrivateRoute';
 import DetailsPage from './pages/details/components/DetailsPage/DetailsPage';
 import FavoritesPage from './pages/favorites/components/FavoritesPage/FavoritesPage';
 import Landing from './pages/home/components/Landing/Landing';
-import LoginPage from './pages/login/LoginPage';
+import LoginPage from './pages/auth/LoginPage/LoginPage';
 import ROUTES from './shared/constants/paths/paths';
 import './App.scss';
+import RegistrationPage from './pages/auth/RegistrationPage/RegistrationPage';
 
 const App = () => {
-  const { home, details, favorites, login } = ROUTES;
+  const { home, details, favorites, login, registration } = ROUTES;
 
   return (
     <Switch>
       <Route path={login.url} exact component={LoginPage} />
+      <Route path={registration.url} exact component={RegistrationPage} />
       <PrivateRoute path={home.url} exact component={Landing} />
       <PrivateRoute path={details.url} component={DetailsPage} />
       <PrivateRoute path={favorites.url} exact component={FavoritesPage} />
