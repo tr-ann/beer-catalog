@@ -14,8 +14,8 @@ $color--link: $dark-blue;
 
 /* button */
 $color--button-text: $color--main-text;
-$color--button-text-active: $color--secondary-text;
-$color--button-active: $color--background-hover;
+$color--button-text-hover: $color--secondary-text;
+$color--button-hover: $color--background-hover;
 $color--button--bright-background: $color--title-background;
 $color--button--bright-hover: $color--link;
 
@@ -28,6 +28,8 @@ $color--header-background: $color--title-background;
 $color--sidebar-background: $color--main-text;
 $color--sidebar-text: $color--secondary-text;
 $color--sidebar-border: $color--background;
+$color--info-menu-text: $color--secondary-text;
+$color--info-menu-text-active: $color--main-text;
 
 /* beer card */
 $color--card-text: $color--main-text;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './styles/Section.scss';
 
-const Section = ({ title, children, className, isBordered, isSmall }) => {
+const Section = ({ title, children, className, isBordered, isSmall, isHidden }) => {
   const sectionClasses = classNames('section', className, {
     section_small: isSmall,
   });
@@ -12,7 +12,7 @@ const Section = ({ title, children, className, isBordered, isSmall }) => {
   });
 
   return (
-    <div className={sectionClasses}>
+    <div hidden={isHidden} className={sectionClasses}>
       {title && <h2 className="section__title">{title}</h2>}
       <div className={sectionBodyClasses}>{children}</div>
     </div>
@@ -32,6 +32,7 @@ Section.propTypes = {
   className: PropTypes.string,
   isBordered: PropTypes.bool,
   isSmall: PropTypes.bool,
+  isHidden: PropTypes.bool,
 };
 
 Section.defaultProps = {
@@ -40,4 +41,5 @@ Section.defaultProps = {
   className: '',
   isBordered: false,
   isSmall: false,
+  isHidden: false,
 };

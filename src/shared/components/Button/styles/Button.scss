@@ -14,8 +14,8 @@
   &:hover,
   &:focus {
     outline: none;
-    background-color: $color--button-active;
-    color: $color--button-text-active;
+    background-color: $color--button-hover;
+    color: $color--button-text-hover;
     cursor: pointer;
   }
 

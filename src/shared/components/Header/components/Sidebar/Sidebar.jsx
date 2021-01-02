@@ -16,7 +16,7 @@ const Sidebar = ({ className, isHidden, currentPage, onClose }) => {
     <div className={sidebarClass}>
       <header className="sidebar__header">
         {currentPage}
-        <Button className="header__close-button" onClick={onClose}>
+        <Button className="header__close-button" onClick={onClose} name="isSidebarHidden">
           <img src={cancelIcon} alt="close" className="close-button-icon" />
         </Button>
       </header>
