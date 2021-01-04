@@ -53,7 +53,6 @@ export default class LoginPage extends Component {
           className="login-page__input"
           value={login}
           onChange={this.onInputChange}
-          onSubmit={() => {}}
           placeholder="login"
         />
         <Input
@@ -62,7 +61,6 @@ export default class LoginPage extends Component {
           type="password"
           value={password}
           onChange={this.onInputChange}
-          onSubmit={() => {}}
           placeholder="password"
         />
         <div className="login-page__button-container">
@@ -70,7 +68,7 @@ export default class LoginPage extends Component {
             Login
           </Button>
           <Link to={registration.url}>
-            <Button isBright className="login-page__button" onClick={() => {}}>
+            <Button isBright className="login-page__button">
               Register
             </Button>
           </Link>

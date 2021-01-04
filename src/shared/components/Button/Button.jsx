@@ -40,6 +40,6 @@ Button.defaultProps = {
   name: '',
   children: '',
   className: '',
-  onClick: null,
+  onClick: () => {},
   value: '',
 };

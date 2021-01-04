@@ -33,7 +33,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   type: PropTypes.string,
 };
 
@@ -42,4 +42,5 @@ Input.defaultProps = {
   className: '',
   placeholder: 'type...',
   type: 'text',
+  onSubmit: () => {},
 };

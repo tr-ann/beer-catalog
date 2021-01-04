@@ -61,7 +61,6 @@ export default class RegistrationPage extends Component {
             className="registration-page__input"
             value={login}
             onChange={this.onInputChange}
-            onSubmit={() => {}}
             placeholder="login"
           />
         </label>
@@ -73,7 +72,6 @@ export default class RegistrationPage extends Component {
             type="password"
             value={password}
             onChange={this.onInputChange}
-            onSubmit={() => {}}
             placeholder="password"
           />
         </label>
@@ -84,7 +82,6 @@ export default class RegistrationPage extends Component {
             className="registration-page__input"
             value={name}
             onChange={this.onInputChange}
-            onSubmit={() => {}}
             placeholder="name"
           />
         </label>
@@ -96,7 +93,6 @@ export default class RegistrationPage extends Component {
             className="registration-page__input"
             value={email}
             onChange={this.onInputChange}
-            onSubmit={() => {}}
             placeholder="email"
           />
         </label>
@@ -108,7 +104,6 @@ export default class RegistrationPage extends Component {
             className="registration-page__input"
             value={birthday}
             onChange={this.onInputChange}
-            onSubmit={() => {}}
             placeholder="birthday"
           />
         </label>
@@ -119,7 +114,6 @@ export default class RegistrationPage extends Component {
             className="registration-page__input"
             value={picture}
             onChange={this.onInputChange}
-            onSubmit={() => {}}
             placeholder="path to image"
           />
         </label>
