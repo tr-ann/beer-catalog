@@ -31,7 +31,7 @@ export default class RegistrationPage extends Component {
     const { history } = this.props;
     const { home } = ROUTES;
 
-    const users = localStorage.getItem('users') || [];
+    const users = JSON.parse(localStorage.getItem('users')) || [];
     const isUserExist = Boolean(users.find((item) => item.login === login));
 
     if (isUserExist) {

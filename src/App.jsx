@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import PrivateRoute from './shared/components/PrivateRoute/PrivateRoute';
@@ -9,9 +8,10 @@ import ROUTES from './shared/constants/paths/paths';
 import './App.scss';
 import RegistrationPage from './pages/auth/RegistrationPage/RegistrationPage';
 import LoginPageContainer from './pages/auth/LoginPage/LoginPageContainer';
+import UserProfilePage from './pages/user/components/UserProfilePage/UserProfilePage';
 
 const App = () => {
-  const { home, details, favorites, login, registration } = ROUTES;
+  const { home, details, favorites, login, registration, profile } = ROUTES;
 
   return (
     <Switch>
@@ -20,6 +20,7 @@ const App = () => {
       <PrivateRoute path={home.url} exact component={Landing} />
       <PrivateRoute path={details.url} component={DetailsPage} />
       <PrivateRoute path={favorites.url} exact component={FavoritesPage} />
+      <PrivateRoute path={profile.url} exact component={UserProfilePage} />
       <Redirect to={home.url} />
     </Switch>
   );

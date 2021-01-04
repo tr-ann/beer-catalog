@@ -1,0 +1,14 @@
+.profile {
+  margin: 2rem auto;
+  width: 20rem;
+
+  &__item {
+    display: flex;
+  }
+
+  &__image {
+    margin: 0.5rem 0.5rem 0 0;
+    float: left;
+    height: 5rem;
+  }
+}
