@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import './styles/Input.scss';
 
-const Input = ({ className, placeholder, value, onChange, onSubmit }) => {
+const Input = ({ id, className, placeholder, value, onChange, onSubmit, type }) => {
   const inputClass = classNames('input', className);
 
   const onKeyPress = (e) => {
@@ -14,7 +14,8 @@ const Input = ({ className, placeholder, value, onChange, onSubmit }) => {
 
   return (
     <input
-      type="text"
+      id={id}
+      type={type}
       value={value}
       className={inputClass}
       placeholder={placeholder}
@@ -27,14 +28,19 @@ const Input = ({ className, placeholder, value, onChange, onSubmit }) => {
 export default Input;
 
 Input.propTypes = {
+  id: PropTypes.string,
   className: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
+  type: PropTypes.string,
 };
 
 Input.defaultProps = {
+  id: '',
   className: '',
   placeholder: 'type...',
+  type: 'text',
+  onSubmit: () => {},
 };

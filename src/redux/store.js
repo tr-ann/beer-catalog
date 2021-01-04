@@ -1,7 +1,9 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import beersReducer from './reducers/beersReducer';
 
-const store = createStore(beersReducer, applyMiddleware(thunk));
+const reducer = combineReducers({ beers: beersReducer });
+
+const store = createStore(reducer, applyMiddleware(thunk));
 
 export default store;

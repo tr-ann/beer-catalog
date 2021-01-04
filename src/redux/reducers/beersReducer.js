@@ -14,6 +14,7 @@ import {
   SET_SEARCH_PARAMS,
   RESET_SEARCH_PARAMS,
   GET_BEER_INFO_SUCCESS,
+  SET_FAVORITE_BEERS,
 } from '../actionTypes';
 
 const initialState = {
@@ -88,6 +89,14 @@ export default function beersList(state = initialState, action) {
         isLoading: false,
         params: { ...oldParams, page: oldParams.page + 1 },
         beersList: [...beers],
+      };
+    }
+    case SET_FAVORITE_BEERS: {
+      const { favorites } = action.payload;
+
+      return {
+        ...state,
+        favoritesIds: favorites,
       };
     }
     case ADD_FAVORITE_BEER: {

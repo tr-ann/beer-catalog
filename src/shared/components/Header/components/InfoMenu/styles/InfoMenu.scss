@@ -1,0 +1,20 @@
+@import '../../../../../styles/colors.scss';
+
+.info-menu {
+  position: absolute;
+  right: 1rem;
+  top: 3rem;
+
+  &__item {
+    display: block;
+    border: none;
+    border-radius: 0;
+    color: $color--info-menu-text;
+
+    &:active {
+      background-color: $color--header-background;
+      color: $color--info-menu-text-active;
+      transform: translateY(0);
+    }
+  }
+}
