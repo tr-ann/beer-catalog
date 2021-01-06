@@ -42,7 +42,6 @@
     ]
   },
   "devDependencies": {
-    "@types/query-string": "^6.3.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.15.0"
   }

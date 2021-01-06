@@ -17,19 +17,19 @@ import {
   SET_FAVORITE_BEERS,
 } from '../actionTypes';
 
-const initialState = {
+export const initialState = {
   beersList: [],
   favoritesIds: [],
   favorites: [],
   isLoading: false,
   error: null,
+  beerInfo: null,
   params: {
     ibu: INITIAL_BITTERNESS_UNITS,
     abv: INITIAL_ALCOHOL_BY_VOLUME,
     ebc: INITIAL_COLOR_BY_EBC,
     page: 1,
   },
-  beerInfo: null,
 };
 
 export default function beersList(state = initialState, action) {
