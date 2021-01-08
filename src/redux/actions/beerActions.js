@@ -19,44 +19,44 @@ import {
   SET_FAVORITE_BEERS,
 } from '../actionTypes';
 
-const getBeerStarted = () => ({
+export const getBeerStarted = () => ({
   type: GET_BEER_STARTED,
 });
 
-const getBeerFailure = (error) => ({
+export const getBeerFailure = (error) => ({
   type: GET_BEER_LIST_FAILURE,
   payload: { error },
 });
 
-const getBeerSuccess = (beers) => {
+export const getBeerSuccess = (beers) => {
   return {
     type: GET_BEER_LIST_SUCCESS,
     payload: { beers },
   };
 };
 
-const getFavoriteBeerSuccess = (favorites) => {
+export const getFavoriteBeerSuccess = (favorites) => {
   return {
     type: GET_FAVORITE_BEERS_SUCCESS,
     payload: { favorites },
   };
 };
 
-const searchBeersSuccess = (beers) => {
+export const searchBeersSuccess = (beers) => {
   return {
     type: SEARCH_BEERS_SUCCESS,
     payload: { beers },
   };
 };
 
-const setSearchParams = (params) => {
+export const setSearchParams = (params) => {
   return {
     type: SET_SEARCH_PARAMS,
     payload: { params },
   };
 };
 
-const resetSearchParams = () => {
+export const resetSearchParams = () => {
   return {
     type: RESET_SEARCH_PARAMS,
     payload: {
@@ -70,7 +70,7 @@ const resetSearchParams = () => {
   };
 };
 
-const getBeerInfoSuccess = (beer) => {
+export const getBeerInfoSuccess = (beer) => {
   return {
     type: GET_BEER_INFO_SUCCESS,
     payload: { beer },
