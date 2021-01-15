@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.21.0",
     "classnames": "^2.2.6",
+    "node-fetch": "^2.6.1",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.13.7",
@@ -15,6 +16,7 @@
     "react-scripts": "4.0.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
+    "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
@@ -42,8 +44,8 @@
     ]
   },
   "devDependencies": {
-    "@types/query-string": "^6.3.0",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^6.15.0"
+    "eslint-config-prettier": "^6.15.0",
+    "fetch-mock": "^9.11.0"
   }
 }
